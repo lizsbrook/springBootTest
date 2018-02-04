@@ -5,6 +5,8 @@ import com.shangde.gao.service.BookServiceImpl;
 import com.shangde.gao.util.HttpClientUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class MySpringBootTest {
 
+    private final  static Logger log = LoggerFactory.getLogger(MySpringBootTest.class);
     @Autowired
     BookServiceImpl bookServiceImpl;
 
@@ -33,10 +36,11 @@ public class MySpringBootTest {
         System.out.println("-----测试完毕-------");
     }
 
-
-    public void test1(){
-
-        System.out.println("-----test1测试完毕test1-------");
+    @Test
+    public void logTest(){
+       log.info("this is a info test!");
+        log.warn("this is a warnning test!");
+        log.error("this is a error test!");
     }
 
 

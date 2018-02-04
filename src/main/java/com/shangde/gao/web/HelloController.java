@@ -1,14 +1,10 @@
 package com.shangde.gao.web;
 
 import com.shangde.gao.domain.BookBean;
-import com.shangde.gao.domain.ResDTO;
-import com.shangde.gao.domain.TestBean;
-import com.shangde.gao.service.BookServiceImpl;
 import com.shangde.gao.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +23,6 @@ public class HelloController {
 
     @Autowired
     private BookBean bookBean;
-
-
 
     @RequestMapping("/hello/{name}")
     public String hello(@PathVariable("name") String name) {
@@ -56,12 +50,6 @@ public class HelloController {
         return "teacherName="+teacherName+"</br>teacherOneRemark="+teacherOneRemark+"</br>cityName="+cityName;
     }
 
-    @RequestMapping("/testBodyRequestParam")
-    public String testJson(TestBean teacher) {
-
-        return teacher.toString();
-    }
-
     @RequestMapping("/mapJsonTest")
     public String testMapJson() {
         Map param = new HashMap();
@@ -69,18 +57,4 @@ public class HelloController {
         param.put("role","teacher");
         return JsonUtils.toJson(param);
     }
-
-    @RequestMapping("/testJson")
-    public ResDTO testObject() {
-        ResDTO resDTO = new ResDTO();
-        TestBean testBean = new TestBean();
-        testBean.setTeacherName("gaoming");
-        resDTO.setResultMessage(testBean);
-        resDTO.setRs(1);
-        resDTO.setRsdesp("成功");
-        return resDTO;
-    }
-
-
-
 }
