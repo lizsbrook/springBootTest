@@ -3,6 +3,7 @@ package com.shangde.gao;
 import com.shangde.gao.domain.BookBean;
 import com.shangde.gao.service.BookServiceImpl;
 import com.shangde.gao.util.HttpClientUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -13,10 +14,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
+@Slf4j
 @RunWith(SpringRunner.class)
 public class MySpringBootTest {
-
-    private final  static Logger log = LoggerFactory.getLogger(MySpringBootTest.class);
+    //lombok注解替换
+    //private final  static Logger log = LoggerFactory.getLogger(MySpringBootTest.class);
     @Autowired
     BookServiceImpl bookServiceImpl;
 
