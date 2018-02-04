@@ -1,10 +1,15 @@
 package com.shangde.gao.domain;
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "test_book")
-public class BookBean {
+public class BookBean implements Serializable {
 
+    public BookBean()
+    {
+
+    }
     @Column(name = "name")
     private String name;
 

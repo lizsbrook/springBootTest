@@ -1,5 +1,8 @@
 package com.shangde.gao;
 
+import com.shangde.gao.domain.ResDTO;
+import com.shangde.gao.domain.TestBean;
+
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -40,7 +43,11 @@ class Inner {
 };
 
 
+
+
 public class Test {
+
+
 
     public static void  dosome(String e)
     {
@@ -49,10 +56,10 @@ public class Test {
 
     public static void main(String[] args)
     {
-        Outer outer = new Outer();
-        outer.nested = new Nested();
-        outer.nested.inner = new Inner();
-        outer.nested.inner.foo="hello world!";
+//        Outer outer = new Outer();
+//        outer.nested = new Nested();
+//        outer.nested.inner = new Inner();
+//        outer.nested.inner.foo="hello world!";
 //        if (outer != null && outer.nested!= null && outer.nested.inner != null) {
 //
 //            System.out.println("result is not null "+outer.nested.inner.foo);
@@ -85,8 +92,10 @@ public class Test {
 //            return result;
 //        } );
 
-        Optional< String > fullName = Optional.ofNullable( null );
-        System.out.println( "Full Name is set? " + fullName.isPresent() );
-        System.out.println( fullName.map( s -> "Hey " + s + "!" ).orElse( "Hey Stranger!" ) );
+//        Optional< String > fullName = Optional.ofNullable( null );
+//        System.out.println( "Full Name is set? " + fullName.isPresent() );
+//        System.out.println( fullName.map( s -> "Hey " + s + "!" ).orElse( "Hey Stranger!" ) );
+
+
     }
 }

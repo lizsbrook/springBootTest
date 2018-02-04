@@ -5,6 +5,8 @@ import com.shangde.gao.domain.BookBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Constructor;
+
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -12,8 +14,14 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookMapper bookMapper;
 
+
     @Override
-    public void insertOneBook(BookBean bookBean) {
-        bookMapper.insert(bookBean);
+    public BookBean selectOne(BookBean bookBean) {
+        return bookMapper.selectOne(bookBean);
+    }
+
+    @Override
+    public int insert(BookBean bookBean) {
+        return bookMapper.insertSelective(bookBean);
     }
 }
