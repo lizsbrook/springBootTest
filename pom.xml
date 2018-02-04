@@ -149,6 +149,13 @@
             <version>3.9.1</version>
         </dependency>
 
+
+        <!-- lombok的编译支持 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
     </dependencies>
 
 
