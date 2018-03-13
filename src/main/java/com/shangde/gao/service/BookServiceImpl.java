@@ -13,18 +13,20 @@ public class BookServiceImpl implements BookService {
 
     private final  static Logger log = LoggerFactory.getLogger(BookServiceImpl.class);
 
-    @Autowired
-    private BookMapper bookMapper;
+    //@Autowired
+    //private BookMapper bookMapper;
 
 
     @Override
     public BookBean selectOne(BookBean bookBean) {
-        return bookMapper.selectOne(bookBean);
+        //return bookMapper.selectOne(bookBean);
+        return null;
     }
 
     @Override
     public int insert(BookBean bookBean) {
         log.info("BookServiceImpl:start insert one bookbean!");
-        return bookMapper.insertSelective(bookBean);
+        //return bookMapper.insertSelective(bookBean);
+        return 1;
     }
 }

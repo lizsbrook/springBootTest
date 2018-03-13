@@ -7,11 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e4e11e0-db6b-4267-850c-ce9d3fc2e029" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/shangde/gao/MySpringBootTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/shangde/gao/MySpringBootTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/Application.class" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/Application.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/domain/BookBean.class" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/domain/BookBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/service/BookServiceImpl.class" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/service/BookServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/web/HelloController.class" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/com/shangde/gao/web/HelloController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war.xml" afterPath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war_exploded.xml" afterPath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../springBootTest/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/pom.xml" afterPath="$PROJECT_DIR$/../springBootTest/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" afterPath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" afterPath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Application.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/BookBean.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/BookBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/HttpClientUtils.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/HttpClientUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/test/java/com/shangde/gao/MySpringBootTest.java" afterPath="$PROJECT_DIR$/../springBootTest/src/test/java/com/shangde/gao/MySpringBootTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/application-masterslave.properties" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/application-masterslave.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/application.properties" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/application.properties" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/../springBootTest/out/" />
+    <ignored path="$PROJECT_DIR$/../springBootTest/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,110 +51,84 @@
     <favorites_list name="springBootTest" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="BookService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookService.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MyBatisScannerConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/config/MyBatisScannerConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/aaa/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-masterslave.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/aaa/application-masterslave.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="13" column="49" lean-forward="false" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1520422004495" expanded="true" signature="664:669" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="BookServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="323">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
-                <element signature="e#602#603#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/Application.java">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="133">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySpringBootTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/shangde/gao/MySpringBootTest.java">
+      <file leaf-file-name="RequestInterceptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/interceptorTest/RequestInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#test#0;class#MySpringBootTest#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/aaa/logback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3977">
-              <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
+            <state relative-caret-position="380">
+              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogbackLoggingSystem.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/logging/logback/LogbackLoggingSystem.class">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2952">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7011">
-              <caret line="171" column="21" lean-forward="false" selection-start-line="171" selection-start-column="21" selection-end-line="171" selection-end-column="21" />
+            <state relative-caret-position="190">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="HelloController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/web/HelloController.java">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="353">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <element signature="e#1576#1577#0" expanded="true" />
+                <element signature="e#1633#1634#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySpringBootTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../springBootTest/src/test/java/com/shangde/gao/MySpringBootTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1520245115200" expanded="true" signature="1316:1452" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,13 +153,14 @@
       <find>@ConfigurationProperties</find>
       <find>insertSelective</find>
       <find>${httpclient.version}</find>
+      <find>hellowor</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../springBootTest" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -178,24 +170,23 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/book.properties" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.12.RELEASE/spring-context-4.3.12.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassEnhancer.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.12.RELEASE/spring-beans-4.3.12.RELEASE-sources.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.12.RELEASE/spring-beans-4.3.12.RELEASE-sources.jar!/org/springframework/beans/factory/support/ConstructorResolver.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.12.RELEASE/spring-beans-4.3.12.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.12.RELEASE/spring-core-4.3.12.RELEASE-sources.jar!/org/springframework/util/ReflectionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/aaa/application-book.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/dao/UserSignUpMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/UserSignUp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/dao/BookMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/ResDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/TestBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/util/JsonUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/Test.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-book.properties" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/UserSignUpMapper.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/UserSignUp.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/BookMapper.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/ResDTO.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/TestBean.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/JsonUtils.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Test.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/1.5.8.RELEASE/spring-boot-test-1.5.8.RELEASE-sources.jar!/org/springframework/boot/test/context/SpringBootTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MySpringBootTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/dao/BookManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookService.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/test/java/MySpringBootTest.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/BookManager.java" />
         <option value="$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertMapper.java" />
         <option value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/statements/RunAfterTestMethodCallbacks.java" />
@@ -207,8 +198,6 @@
         <option value="$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/select/SelectOneMapper.java" />
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/session/SqlSession.java" />
         <option value="$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/BaseInsertMapper.java" />
-        <option value="$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/BookBean.java" />
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/binding/MapperMethod.java" />
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/reflection/ParamNameResolver.java" />
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/builder/annotation/ProviderSqlSource.java" />
@@ -217,18 +206,21 @@
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/BaseExecutor.java" />
         <option value="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/SimpleExecutor.java" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/config/MyConfigInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/config/MyBatisScannerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/util/HttpClientUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/LomBeanTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/aaa/application-masterslave.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shangde/gao/web/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/main/aaa/application.properties" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$USER_HOME$/.m2/repository/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/logging/logback/LogbackLoggingSystem.class" />
-        <option value="$PROJECT_DIR$/src/main/aaa/logback.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/shangde/gao/MySpringBootTest.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/config/MyConfigInfo.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookService.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/test/java/com/shangde/gao/MySpringBootTest.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/HttpClientUtils.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" />
+        <option value="$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/User.java" />
+        <option value="$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" />
+        <option value="$PROJECT_DIR$/../springBootTest/pom.xml" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/BookBean.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/config/MyBatisScannerConfig.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Application.java" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java" />
       </list>
     </option>
   </component>
@@ -245,6 +237,13 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -257,10 +256,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="y" value="8" />
+    <option name="width" value="1930" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -284,9 +283,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +294,89 @@
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="aaa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="MyBatisScannerConfig" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springBootTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gao" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
@@ -327,74 +406,228 @@
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.23" type="70bed36:NamedLibraryElementNode" />
+              <item name="Maven: org.mybatis:mybatis:3.4.5" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.23" type="70bed36:NamedLibraryElementNode" />
-              <item name="tomcat-jdbc-8.5.23.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.mybatis:mybatis:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.23" type="70bed36:NamedLibraryElementNode" />
-              <item name="tomcat-jdbc-8.5.23.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.mybatis:mybatis:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="ibatis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.23" type="70bed36:NamedLibraryElementNode" />
-              <item name="tomcat-jdbc-8.5.23.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-              <item name="pool" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.mybatis:mybatis:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="ibatis" type="462c0819:PsiDirectoryNode" />
+              <item name="executor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.boot:spring-boot:1.5.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="Maven: org.mybatis:mybatis-spring:1.3.1" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.boot:spring-boot:1.5.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-boot-1.5.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.mybatis:mybatis-spring:1.3.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-spring-1.3.1.jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.boot:spring-boot:1.5.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-boot-1.5.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="boot" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.mybatis:mybatis-spring:1.3.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-spring-1.3.1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.boot:spring-boot:1.5.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-boot-1.5.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="boot" type="462c0819:PsiDirectoryNode" />
-              <item name="logging" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.boot:spring-boot:1.5.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-boot-1.5.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="boot" type="462c0819:PsiDirectoryNode" />
-              <item name="logging" type="462c0819:PsiDirectoryNode" />
-              <item name="logback" type="462c0819:PsiDirectoryNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-test:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-test-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+              <item name="junit4" type="462c0819:PsiDirectoryNode" />
+              <item name="statements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.springframework:spring-web:4.3.12.RELEASE" type="70bed36:NamedLibraryElementNode" />
+              <item name="spring-web-4.3.12.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+              <item name="InvocableHandlerMethod" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: tk.mybatis:mapper:3.4.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="mapper-3.4.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="BaseInsertProvider" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.28318584" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -405,26 +638,27 @@
     <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="SearchEverywhereHistoryKey" value="BaseInsertProvider&#9;FILE&#9;jar://C:/Users/shesong/.m2/repository/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java&#10;MyInterface&#9;PSI&#9;JAVA://com.shangde.gao.annotationTest.MyAnnotationTest#myinterface1" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="SearchEverywhereHistoryKey" value="BookServiceImpl&#9;FILE&#9;file://D:/springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java&#10;pro&#9;FILE&#9;file://D:/springBootTest/src/main/aaa/application.properties&#10;BaseInsertProvider&#9;FILE&#9;jar://C:/Users/shesong/.m2/repository/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java&#10;MyInterface&#9;PSI&#9;JAVA://com.shangde.gao.annotationTest.MyAnnotationTest#myinterface1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../javaWeb/apache-tomcat-9.0.1/webapps/ROOT" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\springBootTest\src\test\java" />
+      <recent name="D:\springBootTest\src\test" />
+      <recent name="D:\springBootTest\src\main" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.shangde.gao" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.shangde.gao.domain" />
+      <recent name="com.shangde.gao.annotationTest" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\springBootTest\src\main\aaa" />
       <recent name="D:\springBootTest\src\main\bbb" />
       <recent name="D:\springBootTest\src\main\java\com\shangde\gao\aaa" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.shangde.gao.annotationTest" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\springBootTest\src\test\java" />
-      <recent name="D:\springBootTest\src\test" />
-      <recent name="D:\springBootTest\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -439,29 +673,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MySpringBootTest.logTest">
+  <component name="RunManager" selected="Tomcat Server.mySpringBootTestWithTomcat">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.shangde.gao.Application" />
-      <module name="springBootTest" />
-      <envs />
-    </configuration>
-    <configuration name="LomBeanTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.shangde.gao.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.shangde.gao.domain.LomBeanTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="springBootTest" />
       <envs />
     </configuration>
@@ -567,7 +782,7 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../springBootTest" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -776,22 +991,20 @@
         </option>
       </method>
     </configuration>
-    <list size="7">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.mySpringBootTestWithTomcat" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.MySpringBootTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test1" />
-      <item index="5" class="java.lang.String" itemvalue="Application.LomBeanTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.logTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.logTest" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.logTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test" />
-        <item index="2" class="java.lang.String" itemvalue="Application.LomBeanTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test1" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MySpringBootTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test1" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MySpringBootTest.test" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MySpringBootTest" />
       </list>
     </recent_temporary>
   </component>
@@ -820,53 +1033,50 @@
       <workItem from="1516358144220" duration="36889000" />
       <workItem from="1517541793331" duration="544000" />
       <workItem from="1517542859785" duration="10754000" />
-      <workItem from="1517560662984" duration="3881000" />
-      <workItem from="1517752837180" duration="667000" />
-      <workItem from="1517753843810" duration="9000" />
+      <workItem from="1517560662984" duration="6230000" />
+      <workItem from="1517902258832" duration="19000" />
+      <workItem from="1517987054978" duration="1829000" />
+      <workItem from="1519351617229" duration="3000" />
+      <workItem from="1519351626081" duration="820000" />
+      <workItem from="1520245064894" duration="26164000" />
+      <workItem from="1520922361771" duration="47000" />
     </task>
-    <task id="LOCAL-00001" summary="增加lambok">
-      <created>1517744921581</created>
+    <task id="LOCAL-00001" summary="okhttp组件添加、sharding jdbc启动配置类添加~">
+      <created>1517744042883</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1517744921581</updated>
+      <updated>1517744042883</updated>
     </task>
-    <task id="LOCAL-00002" summary="增加lambok">
-      <created>1517752764799</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1517752764799</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MySpringBootTest_logTest - 2018.02.04 at 21h 23m 08s.xml">
+    <history-entry file="MySpringBootTest_logTest - 2018.02.05 at 10h 22m 34s.xml">
       <configuration name="MySpringBootTest.logTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySpringBootTest_logTest - 2018.02.04 at 21h 47m 14s.xml">
-      <configuration name="MySpringBootTest.logTest" configurationId="JUnit" />
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 16m 38s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySpringBootTest_logTest - 2018.02.04 at 21h 57m 34s.xml">
-      <configuration name="MySpringBootTest.logTest" configurationId="JUnit" />
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 21m 14s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySpringBootTest_logTest - 2018.02.04 at 22h 01m 48s.xml">
-      <configuration name="MySpringBootTest.logTest" configurationId="JUnit" />
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 23m 09s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 25m 32s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 30m 33s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 47m 55s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MySpringBootTest_test - 2018.02.02 at 15h 58m 12s.xml">
+      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MySpringBootTest_test - 2018.02.02 at 16h 07m 05s.xml">
-      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MySpringBootTest_test - 2018.02.04 at 21h 13m 52s.xml">
-      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MySpringBootTest_test - 2018.02.04 at 21h 15m 27s.xml">
-      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MySpringBootTest_test - 2018.02.04 at 21h 16m 43s.xml">
-      <configuration name="MySpringBootTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MySpringBootTest_test - 2018.02.04 at 21h 18m 38s.xml">
       <configuration name="MySpringBootTest.test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MySpringBootTest_test1 - 2018.02.02 at 16h 11m 10s.xml">
@@ -874,7 +1084,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109103000" />
+    <option name="totallyTimeSpent" value="133041000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -885,29 +1095,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2014315" sideWeight="0.5086114" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22678186" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17168999" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14102565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3654267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30810234" sideWeight="0.8546875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20610687" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3739931" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41657078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2014315" sideWeight="0.4913886" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3400853" sideWeight="0.84739584" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.404814" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25323975" sideWeight="0.49430895" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25357872" sideWeight="0.73519915" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16684607" sideWeight="0.49430895" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -916,7 +1126,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2833698" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24200426" sideWeight="0.4703125" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -954,8 +1164,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加lambok" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加lambok" />
+    <MESSAGE value="okhttp组件添加、sharding jdbc启动配置类添加~" />
+    <option name="LAST_COMMIT_MESSAGE" value="okhttp组件添加、sharding jdbc启动配置类添加~" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -967,14 +1177,8 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookServiceImpl.java</url>
-          <line>27</line>
+          <url>file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java</url>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
@@ -984,8 +1188,20 @@
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java</url>
+          <line>129</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java</url>
+          <line>151</line>
+          <properties />
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="40" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -994,188 +1210,396 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/ExampleMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/binding/MapperMethod.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/reflection/ParamNameResolver.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseSelectProvider.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/select/SelectOneMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/BaseSelectMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertSelectiveMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/BaseMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/BaseInsertMapper.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/CachingExecutor.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/BaseExecutor.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/nio/charset/StandardCharsets.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/jre/lib/rt.jar!/sun/nio/cs/FastCharsetProvider.class" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/nio/charset/Charset.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Class.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/binding/MapperProxy.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/builder/annotation/ProviderSqlSource.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/statements/RunAfterTestMethodCallbacks.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/1.3.1/mybatis-spring-1.3.1-sources.jar!/org/mybatis/spring/SqlSessionTemplate.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/session/defaults/DefaultSqlSession.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/SimpleExecutor.java" />
-    <entry file="file://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.pom" />
-    <entry file="file://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.pom" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/config/MyConfigInfo.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        <state relative-caret-position="355">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/binding/MapperMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/reflection/ParamNameResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseSelectProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/select/SelectOneMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="35" column="17" lean-forward="false" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/BaseSelectMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertSelectiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/BaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/common/base/BaseInsertMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/CachingExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/BaseExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/nio/charset/StandardCharsets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/jre/lib/rt.jar!/sun/nio/cs/FastCharsetProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/nio/charset/Charset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="527" column="0" lean-forward="false" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="3074" column="0" lean-forward="false" selection-start-line="3074" selection-start-column="0" selection-end-line="3074" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/binding/MapperProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/builder/annotation/ProviderSqlSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="113" column="51" lean-forward="false" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE-sources.jar!/org/springframework/test/context/junit4/statements/RunAfterTestMethodCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/1.3.1/mybatis-spring-1.3.1-sources.jar!/org/mybatis/spring/SqlSessionTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="419" column="74" lean-forward="true" selection-start-line="419" selection-start-column="74" selection-end-line="419" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/session/defaults/DefaultSqlSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding>
+            <element signature="e#6374#6375#0" expanded="true" />
+            <element signature="e#6419#6420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/executor/SimpleExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.6/lombok-1.16.6.jar!/lombok/extern/slf4j/Slf4j.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/config/MyConfigInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.4.5/mapper-3.4.5-sources.jar!/tk/mybatis/mapper/provider/base/BaseInsertProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="2" selection-end-line="47" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.pom" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/util/HttpClientUtils.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/util/HttpClientUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/util/JsonUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/config/MyBatisScannerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/BookBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/dao/BookMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/projectlombok/lombok/1.16.6/lombok-1.16.6.jar!/lombok/Getter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/projectlombok/lombok/1.16.6/lombok-1.16.6.jar!/lombok/Setter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/ResDTO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/TestBean.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/web/HelloController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="323">
+          <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/aaa/application.properties">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="186">
+          <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/MyInterceptorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/domain/LomBeanTest.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/book.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookService.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="209">
+          <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/service/BookServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="171">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shangde/gao/Application.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/target/surefire-reports/TEST-com.shangde.gao.MySpringBootTest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/interceptorTest/RequestInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/target/surefire-reports/com.shangde.gao.MySpringBootTest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/BookMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/config/MyBatisScannerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7011">
-          <caret line="171" column="21" lean-forward="false" selection-start-line="171" selection-start-column="21" selection-end-line="171" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/org/springframework/boot/logging/logback/LogbackLoggingSystem.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2952">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/aaa/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3977">
-          <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/shangde/gao/MySpringBootTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#test#0;class#MySpringBootTest#0" expanded="false" />
+            <marker date="1520422004495" expanded="true" signature="664:669" ph="//..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/aaa/application-masterslave.properties">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/domain/BookBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="13" column="49" lean-forward="false" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+        <state relative-caret-position="285">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/test/java/com/shangde/gao/MySpringBootTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520245115200" expanded="true" signature="1316:1452" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,7 +1614,6 @@
             <option name="proportions">
               <list>
                 <option value="0.28318584" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1238,7 +1661,6 @@
             <option name="proportions">
               <list>
                 <option value="0.28318584" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1258,7 +1680,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
+          <last-edited>Maven: ch.qos.logback:logback-access:1.1.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

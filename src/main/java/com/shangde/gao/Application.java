@@ -17,37 +17,6 @@ import java.util.Date;
 @RestController
 public class Application extends SpringBootServletInitializer {
 
-
-    @RequestMapping("/")
-    public String greeting() {
-        return "Hello World!";
-    }
-
-    @RequestMapping("/now")
-    String hehe() {
-        return "现在时间：" + (new Date()).toLocaleString();
-    }
-
-    @RequestMapping("/users/{username}")
-    public String userProfile(@PathVariable("username") String username) {
-        return String.format("user %s", username);
-    }
-
-    @RequestMapping("/posts/{id}")
-    public String post(@PathVariable("id") int id) {
-        return String.format("post %d", id);
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGet() {
-        return "Login Page";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginPost() {
-        return "Login Post Request";
-    }
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(Application.class);

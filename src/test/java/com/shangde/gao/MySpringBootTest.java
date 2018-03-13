@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class MySpringBootTest {
     //lombok注解替换
-    //private final  static Logger log = LoggerFactory.getLogger(MySpringBootTest.class);
+    private final  static Logger log = LoggerFactory.getLogger(MySpringBootTest.class);
     @Autowired
     BookServiceImpl bookServiceImpl;
 

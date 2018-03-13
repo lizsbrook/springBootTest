@@ -1,4 +1,3 @@
-
 package com.shangde.gao.util;
 
 /**
@@ -11,10 +10,6 @@ package com.shangde.gao.util;
 
 
 import okhttp3.*;
-
-
-
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
@@ -41,15 +36,15 @@ public class HttpClientUtils {
 
     private final Logger logger = LoggerFactory.getLogger(HttpClientUtils.class);
 
-    //设置连接时间
-    private void setTimeout(OkHttpClient okHttpClient){
-        okHttpClient.newBuilder().connectTimeout(5, TimeUnit.SECONDS).build();
-    }
 
     //单例模式，保证只有一个OKHttpClientsUtils和OkHttpClient实例
-    private HttpClientUtils(){
-        if (client==null){
-            client = new OkHttpClient();
+    private HttpClientUtils() {
+        if (client == null) {
+            client = new OkHttpClient.Builder().connectTimeout(2, TimeUnit.SECONDS)
+                    .readTimeout(5, TimeUnit.SECONDS)
+                    .writeTimeout(5, TimeUnit.SECONDS).build();
+
+            //设置最大并发请求数（默认是64）
             //设置最大并发请求数（默认是64）
             client.dispatcher().setMaxRequests(400);
             //设置每个主机的最大请求数（默认是5）
@@ -74,7 +69,6 @@ public class HttpClientUtils {
         logger.info("请求url {} :", url);
         //构建请求
         Request request = new Request.Builder().url(url).build();
-        setTimeout(client);
         String message = null;
         try {
             Response response = client.newCall(request).execute();
@@ -93,7 +87,6 @@ public class HttpClientUtils {
     public InputStream doPostGetInputStream(String url, String... json) {
         logger.info("请求url {} : , 参数 : {}", url, json);
         InputStream inputStream = null;
-        setTimeout(client);
         try {
             RequestBody body;
             if (json.length > 0) {
@@ -119,14 +112,13 @@ public class HttpClientUtils {
 
     public String doPost(String url,String... json) {
         logger.info("请求url {} : , 参数 : {}", url, json);
-        setTimeout(client);
         String message = null;
         try {
             RequestBody body;
             if (json.length > 0) {
-                body = RequestBody.create(MediaType.parse("application/json;utf-8"), json[0]);
+                body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json[0]);
             }else {
-                body = RequestBody.create(MediaType.parse("application/json;utf-8"), "");
+                body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), "");
             }
             Request request = new Request.Builder().url(url).post(body).build();
             Response response = client.newCall(request).execute();
@@ -146,7 +138,6 @@ public class HttpClientUtils {
     public String requestGetByAsyn(String url){
         logger.info("请求url {} : , 参数 : {}", url);
         Request request = new Request.Builder().url(url).build();
-        setTimeout(client);
         try {
             client.newCall(request).enqueue(new Callback() {
                 @Override
@@ -176,7 +167,6 @@ public class HttpClientUtils {
     //同步get请求
     public String requestGetBySyn(String url, Map<String,String> paramMap){
         Request request = new Request.Builder().url(url).build();
-        setTimeout(client);
         String message = null;
         try {
             List<NameValuePair> params = new ArrayList<NameValuePair>(0);
@@ -205,7 +195,6 @@ public class HttpClientUtils {
 
     //post方式提交文件
     public String postFile(String url,File file){
-        setTimeout(client);
         String message = null;
         try {
             Request request = new Request.Builder().url("").post(RequestBody.create(MediaType.parse("text/x-markdown;charset=utf-8"), file)).build();
@@ -224,7 +213,6 @@ public class HttpClientUtils {
     //post方式提交FormData数据
     public String doPostWithFormData(String url,String content) {
         logger.info("请求url {} : , 参数 : {}", url, content);
-        setTimeout(client);
         String message = null;
         MediaType mediaType = MediaType.parse("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
         RequestBody body = RequestBody.create(mediaType, content);
@@ -245,5 +233,101 @@ public class HttpClientUtils {
     }
 
 
+    //post方式提交FormData数据
+    public String doPostWithFormData(String url, String name, String content) {
+        logger.info("请求url {} : , 参数 : {}", url, content);
+        String message = null;
+        RequestBody body = new MultipartBody
+                .Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart(name, content)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            message = getResponseMessage(response);
+            logger.info(message);
+        } catch (Exception e) {
+            logger.error(" 请求报错 {}", e);
+        }
+        return message;
+    }
 
+
+    private String getResponseMessage(Response response)throws Exception {
+        if (response.isSuccessful()) {
+            return response.body().string();
+        } else {
+            logger.info("错误码为 : " + String.valueOf(response.code()));
+        }
+        return null;
+    }
+
+
+
+
+    //post方式提交x-www-form-urlencoded数据
+    public String doPostWithWwwFormUrlencoded(String url,String content) {
+        logger.info("请求url {} : , 参数 : {}", url, content);
+        String message = null;
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, content);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .addHeader("content-type", "application/x-www-form-urlencoded")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "7f7a20dc-9638-f1ec-29c1-cb68faa0dc19")
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            message = response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return message;
+    }
+
+    //异步post请求
+    public String requestPostByAsyn(String url,String bodyContent) {
+        logger.info("请求url {} : , 当前时间:{}", url, System.currentTimeMillis());
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, bodyContent);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .addHeader("content-type", "application/x-www-form-urlencoded")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "7f7a20dc-9638-f1ec-29c1-cb68faa0dc19")
+                .build();
+
+        logger.info("开始调用异步 {}", System.currentTimeMillis());
+        try {
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    logger.info("异步请求结果失败 {}", System.currentTimeMillis());
+                    logger.info("报错信息 {}", e);
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String message = response.body().string();
+                        logger.info("异步请求结果成功 {}", System.currentTimeMillis());
+
+                    } else {
+                        logger.info("异步请求结果进行中{}", System.currentTimeMillis());
+                    }
+                }
+            });
+        } catch (Exception e) {
+            logger.error("异步请求调用失败 {} ", System.currentTimeMillis());
+        }
+        return null;
+    }
 }

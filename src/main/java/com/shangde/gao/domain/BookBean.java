@@ -3,20 +3,20 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Table(name = "test_book")
+//Table(name = "test_book")
 public class BookBean implements Serializable {
 
     public BookBean()
     {
 
     }
-    @Column(name = "name")
+    //@Column(name = "name")
     private String name;
 
-    @Column(name = "author")
+    //@Column(name = "author")
     private String author;
 
-    @Column(name = "price")
+    //@Column(name = "price")
     private String price;
 
     public String getName() {
