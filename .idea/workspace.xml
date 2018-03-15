@@ -7,22 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e4e11e0-db6b-4267-850c-ce9d3fc2e029" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/JDBCServiceTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../springBootTest/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../springBootTest/.idea/libraries/Maven__io_shardingjdbc_sharding_jdbc_core_2_0_0_M2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../springBootTest/.idea/libraries/Maven__io_shardingjdbc_sharding_jdbc_spring_boot_starter_2_0_0_M2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../springBootTest/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../springBootTest/.idea/libraries/Maven__org_codehaus_groovy_groovy_indy_2_4_5.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war_exploded.xml" afterPath="$PROJECT_DIR$/../springBootTest/.idea/artifacts/springBootTest_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../springBootTest/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/pom.xml" afterPath="$PROJECT_DIR$/../springBootTest/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/springBootTest.iml" afterPath="$PROJECT_DIR$/../springBootTest/springBootTest.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" afterPath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" afterPath="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/CommonTestController.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/CommonTestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/application-masterslave.properties" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/application-masterslave.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/target/classes/application.properties" afterPath="$PROJECT_DIR$/../springBootTest/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java" afterPath="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../springBootTest/out/" />
     <ignored path="$PROJECT_DIR$/../springBootTest/target/" />
@@ -61,15 +48,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JDBCTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JDBCTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state relative-caret-position="228">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1521102016788" expanded="true" signature="385:419" ph="INSERT into testgm" />
-                <marker date="1521102016788" expanded="true" signature="461:495" ph="INSERT into testgm" />
+                <marker date="1521102992113" expanded="true" signature="510:544" ph="INSERT into testgm" />
+                <marker date="1521102992113" expanded="true" signature="619:653" ph="INSERT into testgm" />
               </folding>
             </state>
           </provider>
@@ -88,8 +75,8 @@
       <file leaf-file-name="JDBCServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/JDBCServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state relative-caret-position="266">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#297#298#0" expanded="true" />
@@ -119,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-masterslave.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application-masterslave.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="59" lean-forward="false" selection-start-line="0" selection-start-column="59" selection-end-line="0" selection-end-column="59" />
+            <state relative-caret-position="399">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,8 +129,8 @@
       <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="190">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -250,10 +237,10 @@
         <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/JDBCServiceTest.java" />
         <option value="$PROJECT_DIR$/../springBootTest/pom.xml" />
         <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/web/CommonTestController.java" />
-        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" />
         <option value="$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java" />
-        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java" />
         <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties" />
+        <option value="$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java" />
       </list>
     </option>
   </component>
@@ -372,7 +359,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gao" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="JDBCTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
@@ -382,7 +370,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gao" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="JDBCServiceTest" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="springBootTest" type="b2602c69:ProjectViewProjectNode" />
@@ -1070,7 +1057,7 @@
       <workItem from="1520245064894" duration="26164000" />
       <workItem from="1520922361771" duration="7888000" />
       <workItem from="1520993643699" duration="1306000" />
-      <workItem from="1521079391677" duration="7091000" />
+      <workItem from="1521079391677" duration="7887000" />
     </task>
     <task id="LOCAL-00001" summary="okhttp组件添加、sharding jdbc启动配置类添加~">
       <created>1517744042883</created>
@@ -1093,7 +1080,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521090228047</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="springJDBC demo测试~">
+      <created>1521102235189</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521102235189</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1129,7 +1123,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149279000" />
+    <option name="totallyTimeSpent" value="150075000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1143,7 +1137,7 @@
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32617587" sideWeight="0.5129171" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40797547" sideWeight="0.18191604" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17653391" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1159,11 +1153,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40797547" sideWeight="0.82131326" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32617587" sideWeight="0.4870829" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40797547" sideWeight="0.81808394" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32617587" sideWeight="0.4870829" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25357872" sideWeight="0.73519915" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22228202" sideWeight="0.49430895" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22228202" sideWeight="0.49430895" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1212,7 +1206,8 @@
     <MESSAGE value="okhttp组件添加、sharding jdbc启动配置类添加~" />
     <MESSAGE value="111111111" />
     <MESSAGE value="增加logback配置使用" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加logback配置使用" />
+    <MESSAGE value="springJDBC demo测试~" />
+    <option name="LAST_COMMIT_MESSAGE" value="springJDBC demo测试~" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1237,13 +1232,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java</url>
-          <line>14</line>
+          <line>17</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java</url>
-          <line>17</line>
+          <line>21</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
@@ -1516,7 +1511,7 @@
         <state relative-caret-position="171">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1533,7 +1528,7 @@
         <state relative-caret-position="0">
           <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1567,9 +1562,9 @@
         <state relative-caret-position="171">
           <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#235#236#0" expanded="false" />
+            <element signature="e#293#294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1608,18 +1603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/JDBCServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/1.5.8.RELEASE/spring-boot-starter-web-1.5.8.RELEASE.pom">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1640,14 +1623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.12.RELEASE/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -1656,23 +1631,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="399">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/service/JDBCServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521102016788" expanded="true" signature="385:419" ph="INSERT into testgm" />
-            <marker date="1521102016788" expanded="true" signature="461:495" ph="INSERT into testgm" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/aaa/application-masterslave.properties">
+    <entry file="file://$PROJECT_DIR$/../springBootTest/src/main/java/com/shangde/gao/dao/JDBCTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="59" lean-forward="false" selection-start-line="0" selection-start-column="59" selection-end-line="0" selection-end-column="59" />
-          <folding />
+        <state relative-caret-position="228">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1521102992113" expanded="true" signature="510:544" ph="INSERT into testgm" />
+            <marker date="1521102992113" expanded="true" signature="619:653" ph="INSERT into testgm" />
+          </folding>
         </state>
       </provider>
     </entry>
