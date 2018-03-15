@@ -112,11 +112,11 @@
         </dependency>
 
         <!-- 引入sharding-jdbc核心模块 -->
-        <dependency>
-            <groupId>io.shardingjdbc</groupId>
-            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-            <version>2.0.0.M2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.shardingjdbc</groupId>-->
+            <!--<artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
+            <!--<version>2.0.0.M2</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>

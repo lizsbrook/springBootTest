@@ -1,5 +1,6 @@
 package com.shangde.gao.web;
 
+import com.shangde.gao.service.JDBCServiceTest;
 import com.shangde.gao.service.LogTestService;
 import com.shangde.gao.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,17 @@ import java.util.Map;
 public class CommonTestController {
 
     @Autowired
+    JDBCServiceTest jdbcServiceTest;
+
+    @Autowired
     LogTestService logTestService;
+
+    @RequestMapping("/jdbcServiceTest")
+    public String jdbcServiceTest()
+    {
+        jdbcServiceTest.save();
+        return "jdbcServiceTest over!";
+    }
 
     @RequestMapping("/")
     public String greeting() {
