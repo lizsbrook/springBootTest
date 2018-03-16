@@ -1,7 +1,10 @@
 package com.shangde.gao.domain;
+
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.io.Serializable;
+
 
 @Table(name = "test_book")
 public class BookBean implements Serializable {
@@ -18,6 +21,15 @@ public class BookBean implements Serializable {
 
     @Column(name = "price")
     private String price;
+
+    @Override
+    public String toString() {
+        return "BookBean{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", price='" + price + '\'' +
+                '}';
+    }
 
     public String getName() {
         return name;
@@ -41,14 +53,5 @@ public class BookBean implements Serializable {
 
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "BookBean{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price='" + price + '\'' +
-                '}';
     }
 }

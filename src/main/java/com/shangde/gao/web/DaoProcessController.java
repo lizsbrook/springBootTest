@@ -23,13 +23,22 @@ public class DaoProcessController {
 
     //测试插入数据库
     @RequestMapping(value = "/insertBook",method = RequestMethod.POST)
-    public String hello(String name,String author,String price) {
+    public String insertBook(String name,String author,String price) {
         BookBean bookBean = new BookBean();
         bookBean.setName(name);
         bookBean.setAuthor(author);
         bookBean.setPrice(price);
         bookService.insert(bookBean);
         return bookBean.toString();
+    }
+
+    //测试查询数据库
+    @RequestMapping(value = "/selectBook/{author}",method = RequestMethod.GET)
+    public String selectBook(@PathVariable  String author) {
+        BookBean bookBean = new BookBean();
+        bookBean.setAuthor(author);
+        BookBean result = bookService.selectOne(bookBean);
+        return String.valueOf(result);
     }
 
     @RequestMapping("/hello/{name}")
