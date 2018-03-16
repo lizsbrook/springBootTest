@@ -25,6 +25,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public int insert(BookBean bookBean) {
         log.info("BookServiceImpl:start insert one bookbean!");
-        return bookMapper.insertSelective(bookBean);
+        int resultId = bookMapper.insertSelective(bookBean);
+        log.info("BookServiceImpl:resultId {},BookBean = {}",resultId,bookBean);
+        return resultId;
     }
 }

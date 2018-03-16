@@ -1,18 +1,23 @@
 package com.shangde.gao.domain;
 
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-
+@Getter
+@Setter
+@ToString
 @Table(name = "test_book")
 public class BookBean implements Serializable {
 
-    public BookBean()
-    {
+    @Column(name = "id")
+    private Integer id;
 
-    }
     @Column(name = "name")
     private String name;
 
@@ -22,36 +27,4 @@ public class BookBean implements Serializable {
     @Column(name = "price")
     private String price;
 
-    @Override
-    public String toString() {
-        return "BookBean{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 }
