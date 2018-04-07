@@ -180,7 +180,7 @@
             <version>1.16.6</version>
         </dependency>
 
-        <!-- lombok的编译支持 -->
+        <!-- springboot rabbitmq的编译支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
