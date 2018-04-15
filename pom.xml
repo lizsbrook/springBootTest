@@ -12,6 +12,8 @@
 
     <packaging>war</packaging>
 
+
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -38,9 +40,11 @@
             </exclusions>
         </dependency>
 
+        <!-- redis 包 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
 
         <dependency>
@@ -130,6 +134,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version> 4.12</version>
+
         </dependency>
         <!-- 测试包 -->
         <dependency>
@@ -151,6 +156,13 @@
             <artifactId>okhttp</artifactId>
             <version>3.9.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.54</version>
+        </dependency>
+
 
         <!--logback 日志框架配置 -->
         <dependency>

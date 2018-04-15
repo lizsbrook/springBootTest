@@ -1,11 +1,9 @@
 package com.shangde.gao.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Table(name = "`lite_user`")
-public class User {
+public class User extends MetaEntity {
 
     public User(){}
 

@@ -10,17 +10,12 @@ package com.shangde.gao.util;
 
 
 import okhttp3.*;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -74,12 +69,12 @@ public class HttpClientUtils {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()){
                 message = response.body().string();
-                logger.info(message);
             }
         }catch (Exception e){
             logger.error(" 请求路径 {} , OkHttpClient has exception message: {}", url, e);
             return null;
         }
+        logger.info("请求返回结果  :{}  ", message);
         return message;
     }
 
@@ -124,12 +119,12 @@ public class HttpClientUtils {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()) {
                 message = response.body().string();
-                logger.info(message);
             }
         }catch (Exception e){
             logger.error("请求url {} : , 参数 : {} , OkHttpClient has exception! message: {}", url, json , e);
             return null;
         }
+        logger.info(" 返回结果  : {}",message );
         return message;
     }
 
@@ -166,22 +161,18 @@ public class HttpClientUtils {
 
     //同步get请求
     public String requestGetBySyn(String url, Map<String,String> paramMap){
-        Request request = new Request.Builder().url(url).build();
         String message = null;
         try {
-            List<NameValuePair> params = new ArrayList<NameValuePair>(0);
+            url = url + "?1=1";
             if (paramMap != null && !paramMap.isEmpty()) {
                 for (String key : paramMap.keySet()) {
-                    params.add(new BasicNameValuePair(key, paramMap.get(key)));
+                    url = url + "&" + key + "=" + paramMap.get(key);
                 }
-                URLEncoder.encode(params.toString(),"UTF-8");
             }
+            System.out.println(url);
+            Request request = new Request.Builder().url(url).build();
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()) {
-              /*  Headers responseHeaders = response.headers();
-                for (int i = 0; i < responseHeaders.size(); i++) {
-                    System.out.println(responseHeaders.name(i) + ":" + responseHeaders.value(i));
-                }*/
                 message = response.body().string();
                 logger.info(message);
             }
@@ -191,7 +182,6 @@ public class HttpClientUtils {
         }
         return message;
     }
-
 
     //post方式提交文件
     public String postFile(String url,File file){
@@ -210,26 +200,66 @@ public class HttpClientUtils {
         return message;
     }
 
-    //post方式提交FormData数据
-    public String doPostWithFormData(String url,String content) {
-        logger.info("请求url {} : , 参数 : {}", url, content);
+
+    //form-data方式提交多个key 同步
+    public String doPostWithFormDataBySyn(String url , Map<String,String> map) {
+        logger.info("请求url {} : , 参数 : {}", url, map);
         String message = null;
-        MediaType mediaType = MediaType.parse("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-        RequestBody body = RequestBody.create(mediaType, content);
+        MultipartBody.Builder build = new MultipartBody
+                .Builder()
+                .setType(MultipartBody.FORM);
+        map.forEach((s, s2) -> {
+            build.addFormDataPart(s, s2);
+        });
         Request request = new Request.Builder()
                 .url(url)
-                .post(body)
-                .addHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW")
-                .addHeader("cache-control", "no-cache")
+                .post(build.build())
                 .build();
-
         try {
             Response response = client.newCall(request).execute();
-            message = response.body().string();
-        } catch (IOException e) {
-            e.printStackTrace();
+            message = getResponseMessage(response);
+            logger.info(message);
+        } catch (Exception e) {
+            logger.error(" 请求报错 {}", e);
         }
         return message;
+    }
+
+    //form-data方式提交多个key 异步
+    public String doPostWithFormDataByAsyn(String url , Map<String,String> map) {
+        logger.info("请求url {} : , 参数 : {}", url, map);
+        MultipartBody.Builder build = new MultipartBody
+                .Builder()
+                .setType(MultipartBody.FORM);
+        map.forEach((s, s2) ->build.addFormDataPart(s, s2));
+        logger.info("调用异步url: {}", System.currentTimeMillis());
+        Request request = new Request.Builder()
+                .url(url)
+                .post(build.build())
+                .build();
+
+        logger.info("开始调用异步 {}", System.currentTimeMillis());
+        try {
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    logger.info("报错信息 {}", e);
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String message = response.body().string();
+                        System.out.println("message = "+ message);
+                        logger.info("异步请求结果成功 {}", message);
+
+                    }
+                }
+            });
+        } catch (Exception e) {
+            logger.error("异步请求调用失败 {} ", e);
+        }
+        return null;
     }
 
 
@@ -249,10 +279,10 @@ public class HttpClientUtils {
         try {
             Response response = client.newCall(request).execute();
             message = getResponseMessage(response);
-            logger.info(message);
         } catch (Exception e) {
             logger.error(" 请求报错 {}", e);
         }
+        logger.info(" 请求返回信息 : {} ", message);
         return message;
     }
 
@@ -278,9 +308,6 @@ public class HttpClientUtils {
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
-                .addHeader("content-type", "application/x-www-form-urlencoded")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("postman-token", "7f7a20dc-9638-f1ec-29c1-cb68faa0dc19")
                 .build();
 
         try {
@@ -292,17 +319,59 @@ public class HttpClientUtils {
         return message;
     }
 
-    //异步post请求
-    public String requestPostByAsyn(String url,String bodyContent) {
-        logger.info("请求url {} : , 当前时间:{}", url, System.currentTimeMillis());
+    //post方式提交x-www-form-urlencoded数据
+    public String doPostWithWwwFormUrlencoded(String url,Map<String,String> paramMap) {
+        logger.info("请求url {} : , 参数 : {}", url, paramMap);
+        String message = null;
+        StringBuffer contentBuffer = new StringBuffer();
+        if (paramMap != null && !paramMap.isEmpty()) {
+            for (String key : paramMap.keySet()) {
+                contentBuffer.append(key+ "=" + paramMap.get(key)+"&");
+            }
+        }
+        if(contentBuffer.length()>0)
+        {
+            contentBuffer.deleteCharAt(contentBuffer.length()-1);
+        }
+
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-        RequestBody body = RequestBody.create(mediaType, bodyContent);
+        RequestBody body = RequestBody.create(mediaType, contentBuffer.toString());
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
-                .addHeader("content-type", "application/x-www-form-urlencoded")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("postman-token", "7f7a20dc-9638-f1ec-29c1-cb68faa0dc19")
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            message = response.body().string();
+            logger.info(message);
+        } catch (Exception e) {
+            logger.error(" doPostWithWwwFormUrlencoded的请求报错 : {} ", e);
+        }
+        logger.info(" 请求返回结果 : {}", message);
+        return message;
+    }
+
+    //form-data方式提交多个key 异步
+    public String doPostWithWwwFormUrlencodedByAsyn(String url , Map<String,String> paramMap) {
+        logger.info("请求url {} : , 参数 : {}", url, paramMap);
+        String message = null;
+        StringBuffer contentBuffer = new StringBuffer();
+        if (paramMap != null && !paramMap.isEmpty()) {
+            for (String key : paramMap.keySet()) {
+                contentBuffer.append(key+ "=" + paramMap.get(key)+"&");
+            }
+        }
+        if(contentBuffer.length()>0)
+        {
+            contentBuffer.deleteCharAt(contentBuffer.length()-1);
+        }
+
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, contentBuffer.toString());
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .build();
 
         logger.info("开始调用异步 {}", System.currentTimeMillis());
@@ -310,7 +379,6 @@ public class HttpClientUtils {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    logger.info("异步请求结果失败 {}", System.currentTimeMillis());
                     logger.info("报错信息 {}", e);
                 }
 
@@ -318,16 +386,17 @@ public class HttpClientUtils {
                 public void onResponse(Call call, Response response) throws IOException {
                     if (response.isSuccessful()) {
                         String message = response.body().string();
-                        logger.info("异步请求结果成功 {}", System.currentTimeMillis());
+                        System.out.println("message = "+ message);
+                        logger.info("异步请求结果成功 {}", message);
 
-                    } else {
-                        logger.info("异步请求结果进行中{}", System.currentTimeMillis());
                     }
                 }
             });
         } catch (Exception e) {
-            logger.error("异步请求调用失败 {} ", System.currentTimeMillis());
+            logger.error("异步请求调用失败 {} ", e);
         }
         return null;
     }
+
+
 }

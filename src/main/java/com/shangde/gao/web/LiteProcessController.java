@@ -72,8 +72,8 @@ public class LiteProcessController {
         String password = request.getParameter("password");
         Map param = new HashMap();
         System.out.println("username="+username+" ,password="+password);
-        param.put("userId",username);
-        param.put("password",password);
+        param.put("userId",123);
+        param.put("password",456);
         return JsonUtils.toJson(param);
     }
 }

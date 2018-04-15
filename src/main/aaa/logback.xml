@@ -74,6 +74,21 @@
         </filter>
     </appender>
 
+    <appender name="WEB_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/web/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/info.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <layout>
+            <pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%-5level] [%logger:%line] --%mdc{client} %msg%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
     <appender name="UTIL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/util/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -97,11 +112,8 @@
         <appender-ref ref="UTIL_FILE"/>
     </logger>
 
-    <root level="TRACE">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="TRACE_FILE" />
-        <appender-ref ref="DEBUG_FILE" />
-        <appender-ref ref="WARN_FILE" />
-    </root>
+    <logger name = "com.shangde.gao.web" Level="ERROR" additivity="false">
+        <appender-ref ref="WEB_FILE"/>
+    </logger>
 
 </configuration>
