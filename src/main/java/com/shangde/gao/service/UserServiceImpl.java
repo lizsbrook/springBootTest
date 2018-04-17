@@ -140,11 +140,6 @@ public class UserServiceImpl implements UserService {
         return RsJsonManager.getResultJson().reDataSuccess(JsonUtils.toBean(result, Map.class));
     }
 
-    @Override
-    public boolean getSignUp(String openId, Integer liveCourseId) {
-        //根据openId和liveCourseId查询用户是否报名，如果报名，返回true，若没报名，返回false
-        return Optional.ofNullable(userManager.getPrimaryId(openId, liveCourseId)).isPresent();
-    }
 
     @Override
     public String getMobileByOpenId(String openId) {
