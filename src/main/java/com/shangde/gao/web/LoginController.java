@@ -39,19 +39,19 @@ public class LoginController {
     @RequestMapping(value = "/session/{code}",method = RequestMethod.GET)
     public ResDTO getSession(@PathVariable String code){
         String url = wxLoginUrl + "?appid=" + appid + "&secret=" + secret + "&js_code=" + code + "&grant_type=authorization_code";
-        logger.info("µÇÂ½ÇëÇó²ÎÊı" + url);
+        logger.info("ç™»å½•è¯·æ±‚å‚æ•°" + url);
         String result = HttpClientUtils.getInstance().doPost(url);
-        logger.info("µÇÂ½ÇëÇó·µ»Ø½á¹û"+result);
+        logger.info("ç™»å½•è¯·æ±‚è¿”å›ç»“æœ"+result);
         Map map = JsonUtils.toBean(result, Map.class);
         String openid = (String) map.get("openid");
         if (StringUtils.isEmpty(openid)) {
-            return RsJsonManager.getResultJson().reError("»ñÈ¡²»µ½ÓÃ»§ĞÅÏ¢");
+            return RsJsonManager.getResultJson().reError("è·å–ä¸åˆ°ç”¨æˆ·çš„ä¿¡æ¯");
         }
         userService.insert(new User(openid));
         //è®¾ç½®session key
         redisService.setSessionKey((String) map.get("openid"), (String) map.get("session_key"));
         map.remove("session_key");
-        return RsJsonManager.getResultJson().reDataSuccess(map, "³É¹¦");
+        return RsJsonManager.getResultJson().reDataSuccess(map, "æˆåŠŸ");
     }
 
 }

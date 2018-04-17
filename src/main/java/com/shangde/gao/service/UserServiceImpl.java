@@ -1,5 +1,5 @@
 package com.shangde.gao.service;
-import com.shangde.gao.dao.UserManager;
+import com.shangde.gao.dao.manager.UserManager;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;
@@ -20,12 +20,6 @@ import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: yf-wenhao
- * Date: 17/10/22
- * Time: ÏÂÎç4:27
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -36,14 +30,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisService redisService;
 
+    //ä¸ªäººä¸­å¿ƒå¢åŠ ç”¨æˆ·URL
+    @Value("${userAccount.addUserInfo}")
+    private String addUserInfo;
 
-    //»ñÈ¡ÓÃ»§ÊôĞÔ£¬¶¯Ì¬»ñÈ¡¶ÔÏóÊôĞÔÖµ
+    //è·å–ç”¨æˆ·å±æ€§ï¼ŒåŠ¨æ€è·å–å¯¹è±¡å±æ€§å€¼
     private static List<Field> userFields = Arrays.asList(User.class.getDeclaredFields());
 
-    //ÓÃ»§½Ó¿ÚºÍ¸öÈËÖĞĞÄÓÃ»§½Ó¿Ú×Ö¶ÎÓ³Éä
+    //ç”¨æˆ·æ¥å£å’Œä¸ªäººä¸­å¿ƒç”¨æˆ·æ¥å£å­—æ®µæ˜ å°„
     private static Map<String, String> fieldToAccountFieldMap = new HashMap<>();
 
-    //Í¬²½¸öÈËÖĞĞÄÏà¹Ø³õÊ¼»¯²Ù×÷-³õÊ¼»¯ĞèÒª´«µÄ×Ö¶ÎÓ³Éä
+    //åŒæ­¥ä¸ªäººä¸­å¿ƒç›¸å…³åˆå§‹åŒ–æ“ä½œ-åˆå§‹åŒ–éœ€è¦ä¼ çš„å­—æ®µæ˜ å°„
     static {
         fieldToAccountFieldMap.put("unionid", "unionId");
         fieldToAccountFieldMap.put("mobile", "mobile");
@@ -59,28 +56,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResDTO updateUser(User user) {
-        //Í¨¹ıÌõ¼ş²éÑ¯ÊÇ·ñ´æÔÚ
+        //é€šè¿‡æ¡ä»¶æŸ¥è¯¢æ˜¯å¦å­˜åœ¨
         User paramUser = new User(user.getOpenid());
         User selectUser = userManager.selectOne(paramUser);
         if (null == selectUser) {
-            return RsJsonManager.getResultJson().reError("ÕÒ²»µ½´ËÓÃ»§");
+            return RsJsonManager.getResultJson().reError("æ‰¾ä¸åˆ°æ­¤ç”¨æˆ·");
         }
-        //·µ»Ø¸øÇ°¶ËµÄÊÖ»úºÅ
+        //è¿”å›ç»™å‰ç«¯çš„æ‰‹æœºå·
         Map<String, String> map = new HashMap<>();
         map.put("mobile", selectUser.getMobile());
 
-        //ÉèÖÃÖ÷¼ü
+        //è®¾ç½®ä¸»é”®
         user.setId(selectUser.getId());
         if (null != user.getEncryptedData() && null != user.getIv()) {
-            //½âÃÜ
+            //è§£å¯†
             String sessionKey = redisService.getSessionKey(user.getOpenid());
             if (null == sessionKey) {
-                return RsJsonManager.getResultJson().reError("sessionKey Ê§Ğ§£¬ÇëÖØĞÂµÇÂ½");
+                return RsJsonManager.getResultJson().reError("sessionKey å¤±æ•ˆï¼Œè¯·é‡æ–°ç™»é™†");
             }
             String mobile = WXDecrypt.getMeta("purePhoneNumber", user.getEncryptedData(), sessionKey, user.getIv());
             logger.info("mobile :{}", mobile);
             if (null == mobile) {
-                return RsJsonManager.getResultJson().reError("½âÃÜ³öÏÖ´íÎó");
+                return RsJsonManager.getResultJson().reError("è§£å¯†å‡ºç°é”™è¯¯");
             }
             if (StringUtils.isEmpty(selectUser.getMobile()) || !selectUser.getMobile().equals(mobile)) {
                 user.setMobile(mobile);
@@ -88,9 +85,20 @@ public class UserServiceImpl implements UserService {
             }
         }
         userManager.updateByPrimaryKeySelective(user);
+        synUserInfoToAccount(paramUser);
         return RsJsonManager.getResultJson().reDataSuccess(map);
     }
 
+    private void synUserInfoToAccount(User paramUser) {
+        //åŒæ­¥ä¸ªäººä¿¡æ¯åˆ°ç”¨æˆ·ä¸ªäººä¸­å¿ƒ--start
+        try {
+            User userForAccount = userManager.selectOne(paramUser);
+            HttpClientUtils.getInstance().doPostWithWwwFormUrlencodedByAsyn(addUserInfo, generateParamForAddUserInfo(userForAccount));
+        } catch (Exception e) {
+            logger.error(" ä¸ªäººä¸­å¿ƒè°ƒç”¨å¼‚å¸¸ {}", e);
+        }
+        //åŒæ­¥ä¸ªäººä¿¡æ¯åˆ°ç”¨æˆ·ä¸ªäººä¸­å¿ƒ--end
+    }
 
     @Override
     public User selectOne(User user) {
@@ -103,8 +111,17 @@ public class UserServiceImpl implements UserService {
         User userSelect = userManager.selectOne(queryUser);
         if (null != userSelect) {
             if (null != user.getUnionid() && null == userSelect.getUnionid()) {
-                //¸üĞÂunionid
+                //æ›´æ–°unionid
                 this.updateUser(user);
+            }
+            //åŒæ­¥ä¸ªäººä¿¡æ¯åˆ°ç”¨æˆ·ä¸ªäººä¸­å¿ƒ--start
+            try {
+                User userForAccount = userManager.selectOne(queryUser);
+                if (!StringUtils.isEmpty(userForAccount.getUnionid())) {
+                    HttpClientUtils.getInstance().doPostWithWwwFormUrlencodedByAsyn(addUserInfo, generateParamForAddUserInfo(userForAccount));
+                }
+            } catch (Exception e) {
+                logger.error(" ä¸ªäººä¸­å¿ƒè°ƒç”¨å¼‚å¸¸ {}", e);
             }
             return 0;
         }
@@ -116,11 +133,17 @@ public class UserServiceImpl implements UserService {
     public ResDTO decrypt(User user) {
         String sessionKey = redisService.getSessionKey(user.getOpenid());
         if (null == sessionKey) {
-            return RsJsonManager.getResultJson().reError("sessionKey Ê§Ğ§£¬ÇëÖØĞÂµÇÂ½");
+            return RsJsonManager.getResultJson().reError("sessionKey å¤±æ•ˆï¼Œè¯·é‡æ–°ç™»é™†");
         }
         String result = WXDecrypt.decrypt(user.getEncryptedData(), sessionKey, user.getIv());
         logger.info("mobile :{}", result);
         return RsJsonManager.getResultJson().reDataSuccess(JsonUtils.toBean(result, Map.class));
+    }
+
+    @Override
+    public boolean getSignUp(String openId, Integer liveCourseId) {
+        //æ ¹æ®openIdå’ŒliveCourseIdæŸ¥è¯¢ç”¨æˆ·æ˜¯å¦æŠ¥åï¼Œå¦‚æœæŠ¥åï¼Œè¿”å›trueï¼Œè‹¥æ²¡æŠ¥åï¼Œè¿”å›false
+        return Optional.ofNullable(userManager.getPrimaryId(openId, liveCourseId)).isPresent();
     }
 
     @Override
@@ -131,7 +154,7 @@ public class UserServiceImpl implements UserService {
     private Map<String, String> generateParamForAddUserInfo(User user) {
         TreeSet<String> set = new TreeSet<>();
         Map<String, String> paramString = new HashMap<>();
-        //·´Éä±éÀú¶ÔÏóÖĞÊôĞÔÖµ
+        //åå°„éå†å¯¹è±¡ä¸­å±æ€§å€¼
         userFields.forEach(field ->
         {
             field.setAccessible(true);
@@ -150,7 +173,7 @@ public class UserServiceImpl implements UserService {
                                     set.add("&" + fieldName + "=" + encodeStr);
                                     paramString.put(fieldName, encodeStr);
                                 } catch (UnsupportedEncodingException e) {
-                                    //Èç¹û×ª»¯ÓĞÎÊÌâ,Ôò¸ÃÊôĞÔ²»´«
+                                    //å¦‚æœè½¬åŒ–æœ‰é—®é¢˜,åˆ™è¯¥å±æ€§ä¸ä¼ 
                                     logger.info("encodeStr error field:{}, value : {} ", encodeStr, String.valueOf(s));
                                 }
                             } else {
@@ -165,7 +188,7 @@ public class UserServiceImpl implements UserService {
             }
         });
 
-        //¶Ô¹¹ÔìµÄÅÅĞò¼¯ºÏ´®½øĞĞ½øĞĞ±éÀú
+        //å¯¹æ„é€ çš„æ’åºé›†åˆä¸²è¿›è¡Œè¿›è¡Œéå†
         StringBuilder sb = new StringBuilder();
         set.forEach(sb::append);
         if (sb.charAt(0) == '&') {
@@ -173,9 +196,9 @@ public class UserServiceImpl implements UserService {
         }
         sb.append("&wechatAppShangde17!");
 
-        //°Ñ×îÖÕµÄ´®¼ÓÉÏMD5£¬·½±ã¼øÈ¨
+        //æŠŠæœ€ç»ˆçš„ä¸²åŠ ä¸ŠMD5ï¼Œæ–¹ä¾¿é‰´æƒ
         paramString.put("sign", DigestUtils.md5Hex(sb.toString().getBytes()));
-        logger.info(" ¸ú¸öÈËÖĞĞÄ´«Èë²ÎÊıÎª {}", paramString.toString());
+        logger.info(" è·Ÿä¸ªäººä¸­å¿ƒä¼ å…¥å‚æ•°ä¸º {}", paramString.toString());
         return paramString;
     }
 

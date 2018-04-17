@@ -1,4 +1,4 @@
-package com.shangde.gao.dao;
+package com.shangde.gao.dao.manager;
 
 
 import com.shangde.gao.domain.User;

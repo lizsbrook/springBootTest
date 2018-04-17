@@ -1,4 +1,4 @@
-package com.shangde.gao.dao;
+package com.shangde.gao.dao.mapper;
 
 import com.shangde.gao.domain.BookBean;
 import org.apache.ibatis.annotations.InsertProvider;

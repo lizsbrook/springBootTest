@@ -1,5 +1,6 @@
-package com.shangde.gao.dao;
+package com.shangde.gao.dao.manager;
 
+import com.shangde.gao.dao.mapper.UserMapper;
 import com.shangde.gao.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
