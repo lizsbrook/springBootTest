@@ -30,10 +30,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisService redisService;
 
-    //个人中心增加用户URL
-    @Value("${userAccount.addUserInfo}")
-    private String addUserInfo;
-
     //获取用户属性，动态获取对象属性值
     private static List<Field> userFields = Arrays.asList(User.class.getDeclaredFields());
 
@@ -85,20 +81,10 @@ public class UserServiceImpl implements UserService {
             }
         }
         userManager.updateByPrimaryKeySelective(user);
-        synUserInfoToAccount(paramUser);
+
         return RsJsonManager.getResultJson().reDataSuccess(map);
     }
 
-    private void synUserInfoToAccount(User paramUser) {
-        //同步个人信息到用户个人中心--start
-        try {
-            User userForAccount = userManager.selectOne(paramUser);
-            HttpClientUtils.getInstance().doPostWithWwwFormUrlencodedByAsyn(addUserInfo, generateParamForAddUserInfo(userForAccount));
-        } catch (Exception e) {
-            logger.error(" 个人中心调用异常 {}", e);
-        }
-        //同步个人信息到用户个人中心--end
-    }
 
     @Override
     public User selectOne(User user) {
@@ -113,15 +99,6 @@ public class UserServiceImpl implements UserService {
             if (null != user.getUnionid() && null == userSelect.getUnionid()) {
                 //更新unionid
                 this.updateUser(user);
-            }
-            //同步个人信息到用户个人中心--start
-            try {
-                User userForAccount = userManager.selectOne(queryUser);
-                if (!StringUtils.isEmpty(userForAccount.getUnionid())) {
-                    HttpClientUtils.getInstance().doPostWithWwwFormUrlencodedByAsyn(addUserInfo, generateParamForAddUserInfo(userForAccount));
-                }
-            } catch (Exception e) {
-                logger.error(" 个人中心调用异常 {}", e);
             }
             return 0;
         }

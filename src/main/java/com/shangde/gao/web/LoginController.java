@@ -51,6 +51,7 @@ public class LoginController {
         //设置session key
         redisService.setSessionKey((String) map.get("openid"), (String) map.get("session_key"));
         map.remove("session_key");
+        map.put("appid","wx50da7efdcdf03f28");
         return RsJsonManager.getResultJson().reDataSuccess(map, "成功");
     }
 
