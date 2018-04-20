@@ -113,7 +113,7 @@ public class UserServiceImpl implements UserService {
             return RsJsonManager.getResultJson().reError("sessionKey 失效，请重新登陆");
         }
         String result = WXDecrypt.decrypt(user.getEncryptedData(), sessionKey, user.getIv());
-        logger.info("mobile :{}", result);
+        logger.info("decrypt over ,user info :{}", result);
         return RsJsonManager.getResultJson().reDataSuccess(JsonUtils.toBean(result, Map.class));
     }
 
