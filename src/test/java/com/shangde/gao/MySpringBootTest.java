@@ -41,9 +41,9 @@ public class MySpringBootTest {
 
     @Test
     public void logTest(){
-       log.info("this is a info test!");
-        log.warn("this is a warnning test!");
-        log.error("this is a error test!");
+//       log.info("this is a info test!");
+//        log.warn("this is a warnning test!");
+//        log.error("this is a error test!");
     }
 
 
