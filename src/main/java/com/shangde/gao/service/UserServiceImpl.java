@@ -4,14 +4,12 @@ import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;
 import com.shangde.gao.service.redis.RedisService;
-import com.shangde.gao.util.HttpClientUtils;
 import com.shangde.gao.util.JsonUtils;
 import com.shangde.gao.util.WXDecrypt;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

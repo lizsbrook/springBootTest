@@ -1,5 +1,6 @@
 package com.shangde.gao.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * Time: 上午10:52
  * redis配置类
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "redis")
 public class RedisConfig {
@@ -24,6 +26,7 @@ public class RedisConfig {
     private String host;
     private int port;
     private int timeout;
+    private String password;
 
     @Bean
     public JedisPoolConfig jedisPoolConfig(){
@@ -38,7 +41,7 @@ public class RedisConfig {
     //声明这是一个bean
     @Bean
     public JedisPool jedisPool(JedisPoolConfig jedisPoolConfig){
-        return new JedisPool(jedisPoolConfig,host,port,timeout);
+        return new JedisPool(jedisPoolConfig,host,port,timeout,password);
     }
 
     public int getMaxTotal() {
@@ -95,5 +98,13 @@ public class RedisConfig {
 
     public void setTimeout(int timeout) {
         this.timeout = timeout;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
