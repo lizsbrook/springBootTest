@@ -1,5 +1,9 @@
 var angleStart = -360;
-
+//初始input按钮状态为隐藏效果
+$(document).ready(function()
+{
+  toggleOptions($("ul").parent());
+});
 // jquery rotate animation
 function rotate(li,d) {
     $({d:angleStart}).animate({d:d}, {
