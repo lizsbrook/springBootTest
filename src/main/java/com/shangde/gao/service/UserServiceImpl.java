@@ -1,5 +1,6 @@
 package com.shangde.gao.service;
 import com.shangde.gao.dao.manager.UserManager;
+import com.shangde.gao.dao.mapper.UserMapper;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;
@@ -23,6 +24,8 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
+    @Autowired
+    private UserMapper userMapper;
     @Autowired
     private UserManager userManager;
     @Autowired
@@ -170,6 +173,12 @@ public class UserServiceImpl implements UserService {
         paramString.put("sign", DigestUtils.md5Hex(sb.toString().getBytes()));
         logger.info(" 跟个人中心传入参数为 {}", paramString.toString());
         return paramString;
+    }
+
+
+    @Override
+    public User selectByPrimaryKey(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 
 }

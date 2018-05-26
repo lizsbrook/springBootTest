@@ -104,6 +104,21 @@
         </filter>
     </appender>
 
+    <appender name="interceptor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/interceptor.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.base}/interceptor.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <MaxHistory>10</MaxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%date][%thread][%logger{40}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <logger name = "com.shangde.gao.service" Level="DEBUG" additivity="false">
         <appender-ref ref="SERVICE_FILE"/>
     </logger>
@@ -112,8 +127,14 @@
         <appender-ref ref="UTIL_FILE"/>
     </logger>
 
+    <logger name="com.shangde.gao.config.interceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="interceptor" />
+    </logger>
+
     <logger name = "com.shangde.gao.web" Level="ERROR" additivity="false">
         <appender-ref ref="WEB_FILE"/>
     </logger>
+
+
 
 </configuration>

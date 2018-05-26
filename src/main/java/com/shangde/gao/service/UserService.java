@@ -13,4 +13,6 @@ public interface UserService {
     int insert(User user);
 
     ResDTO decrypt(User user);
+
+    User selectByPrimaryKey(Integer id);
 }

@@ -1,4 +1,4 @@
-package com.shangde.gao.annotationTest;
+package com.shangde.gao.annotation;
 
 import javax.persistence.Column;
 import javax.persistence.Table;

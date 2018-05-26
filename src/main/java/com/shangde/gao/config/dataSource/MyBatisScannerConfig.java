@@ -1,4 +1,4 @@
-package com.shangde.gao.config;
+package com.shangde.gao.config.dataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

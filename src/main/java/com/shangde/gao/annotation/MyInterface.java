@@ -1,4 +1,4 @@
-package com.shangde.gao.annotationTest;
+package com.shangde.gao.annotation;
 
 import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.mapper.common.BaseMapper;

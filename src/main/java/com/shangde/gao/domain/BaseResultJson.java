@@ -12,6 +12,9 @@ import java.util.Map;
 public class BaseResultJson {
     private ResDTO resDTO = new ResDTO();
 
+    public ResDTO getResDTO() {
+        return resDTO;
+    }
     /**
      * Re success res dto.
      * 返回成功
