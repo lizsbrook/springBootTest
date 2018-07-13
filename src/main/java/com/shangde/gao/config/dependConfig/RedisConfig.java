@@ -1,4 +1,4 @@
-package com.shangde.gao.config;
+package com.shangde.gao.config.dependConfig;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

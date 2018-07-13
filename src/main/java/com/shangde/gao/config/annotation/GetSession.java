@@ -1,4 +1,4 @@
-package com.shangde.gao.annotation;
+package com.shangde.gao.config.annotation;
 
 import java.lang.annotation.*;
 

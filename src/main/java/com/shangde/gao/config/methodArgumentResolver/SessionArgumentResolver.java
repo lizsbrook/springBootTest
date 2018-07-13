@@ -1,6 +1,6 @@
 package com.shangde.gao.config.methodArgumentResolver;
 
-import com.shangde.gao.annotation.GetSession;
+import com.shangde.gao.config.annotation.GetSession;
 import com.shangde.gao.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

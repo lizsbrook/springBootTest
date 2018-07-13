@@ -1,4 +1,4 @@
-package com.shangde.gao.config;
+package com.shangde.gao.config.mvc;
 
 import com.shangde.gao.config.interceptor.InterceptorSession;
 import com.shangde.gao.config.interceptor.RequestInterceptor;
