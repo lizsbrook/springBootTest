@@ -16,6 +16,12 @@ import java.util.Date;
 
 public class MetaEntity implements Serializable {
 
+    public MetaEntity() {
+    }
+
+    public MetaEntity(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SELECT LAST_INSERT_ID()")

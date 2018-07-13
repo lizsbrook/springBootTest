@@ -1,6 +1,6 @@
 package com.shangde.gao.service;
 import com.shangde.gao.dao.manager.UserManager;
-import com.shangde.gao.dao.mapper.UserMapper;
+import com.shangde.gao.dao.mapper.main.UserMapper;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;

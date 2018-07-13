@@ -1,7 +1,9 @@
 package com.shangde.gao.web;
 
+import com.shangde.gao.config.dependConfig.WXConfig;
 import com.shangde.gao.util.HttpClientUtils;
 import com.shangde.gao.util.JsonUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,17 +23,13 @@ import java.util.Map;
 public class LiteProcessController {
 
 
-    @Value("${wxLogin.url}")
-    private String wxLoginUrl;
-    @Value("${appid}")
-    private String appid;
-    @Value("${secret}")
-    private String secret;
+    @Autowired
+    private WXConfig wxConfig;
 
     @RequestMapping(value = "/userLogin",method = RequestMethod.POST)
     public String userLogin(String code,HttpServletResponse response)
     {
-        String url = wxLoginUrl + "?appid=" + appid + "&secret=" + secret + "&js_code=" + code + "&grant_type=authorization_code";
+        String url = wxConfig.getLoginUrL() + "?appid=" + wxConfig.getAppid() + "&secret=" + wxConfig.getSecret() + "&js_code=" + code + "&grant_type=authorization_code";
         System.out.println("登录请求参数" + url);
         String result = HttpClientUtils.getInstance().doPost(url);
         System.out.println("登录请求返回结果"+result);
@@ -48,8 +46,8 @@ public class LiteProcessController {
         //设置session key
         //redisService.setSessionKey((String) map.get("openid"), (String) map.get("session_key"));
         //map.remove("session_key");
-        map.put("appid", appid);
-        map.put("secret",secret);
+        map.put("appid", wxConfig.getAppid());
+        map.put("secret",wxConfig.getSecret());
         String clientData = JsonUtils.toJson(map);
         Map returnjSON = new HashMap();
         returnjSON.put("Status","SUCCESS");

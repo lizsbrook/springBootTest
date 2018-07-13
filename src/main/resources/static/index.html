@@ -1,68 +1,39 @@
-﻿<!DOCTYPE html>
-<html lang="en" >
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>小雕个人空间</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Personalized clock </title>
 </head>
-
 <body>
 
-  <div class='selector'>
-  <ul>
-    <li>
-      <input id='1' type='checkbox' onclick="javascript:location='./siyue3D.html'">
-      <label for='1'>四月</a></label>
-    </li>
-    <li>
-      <input id='2' type='checkbox' onclick="javascript:location='./huazhan3D.html'">
-      <label for='2'>百天艺术展</a></label>
-    </li>
-    <li>
-      <input id='3' type='checkbox' onclick="javascript:location='./sanyue3D.html'">
-      <label for='3'>三月</label>
-    </li>
-    <li>
-      <input id='4' type='checkbox' onclick="javascript:location='./wuxue3D.html'">
-      <label for='4'>武穴</label>
-    </li>
-    <li>
-      <input id='5' type='checkbox' onclick="javascript:location='./manyue3D.html'">
-      <label for='5'>满月</label>
-    </li>
-    <li>
-      <input id='6' type='checkbox' onclick="javascript:location='./banyue3D.html'">
-      <label for='6'>半月</label>
-    </li>
-    <li>
-      <input id='7' type='checkbox' onclick="javascript:location='./shitianyishu3D.html'">
-      <label for='7'>十天艺术展</label>
-    </li>
-    <li>
-      <input id='8' type='checkbox' onclick="javascript:location='./chusheng3D.html'">
-      <label for='8'>出生</label>
-    </li>
-  </ul>
-  <button>Click here</button>
+<style type="text/css">
+	.relogio{width:550px;height:550px;margin:40px auto 0 auto;}
+</style>
+
+<div class="relogio"></div>
+<div>
+	<center>
+		<span id="todaydatetime"></span>
+	</center>
 </div>
+<script type="text/javascript" src="js/index.js"></script>
 
+<script>
+	function displayTime() {
+		var elt = document.getElementById("todaydatetime");
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		var ms = now.getMilliseconds();
+		elt.innerHTML =h + "小时:" + m + "分:" + s + "秒:" + ms;
+		setTimeout(displayTime, 100);
+	}
+	displayTime();
+</script>
 
-  <script src='js/jquery.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
-
-
-
-
-
-</body>
-
+<div style="text-align: center">
+<strong><span style="font-size:32px;">Hello world</span></strong>
+</div>
+</body>	
 </html>

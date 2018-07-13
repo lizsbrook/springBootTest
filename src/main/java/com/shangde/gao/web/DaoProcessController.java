@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/daoTest")
 public class DaoProcessController {
-    @Autowired
-    private BookBean bookBean;
-
-    @Value("${submission.url}")
-    private String submissionUrl;
 
     @Autowired
     BookServiceImpl bookService;
@@ -39,12 +34,6 @@ public class DaoProcessController {
         bookBean.setAuthor(author);
         BookBean result = bookService.selectOne(bookBean);
         return String.valueOf(result);
-    }
-
-    @RequestMapping("/hello/{name}")
-    public String hello(@PathVariable("name") String name) {
-        return "hello: "+name+"</br>assessmentUrl: "+submissionUrl+"</br>bookBean: "+bookBean.getAuthor();
-
     }
 
 }

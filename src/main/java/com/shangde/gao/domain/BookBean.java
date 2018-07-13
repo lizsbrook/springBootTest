@@ -1,6 +1,7 @@
 package com.shangde.gao.domain;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,14 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Table(name = "test_book")
-public class BookBean implements Serializable {
-
-    @Column(name = "id")
-    private Integer id;
+public class BookBean extends MetaEntity {
 
     @Column(name = "name")
     private String name;

@@ -1,6 +1,6 @@
 package com.shangde.gao.service;
 
-import com.shangde.gao.dao.mapper.BookMapper;
+import com.shangde.gao.dao.mapper.main.BookMapper;
 import com.shangde.gao.domain.BookBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
