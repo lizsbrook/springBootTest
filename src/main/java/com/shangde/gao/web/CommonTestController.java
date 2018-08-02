@@ -4,12 +4,14 @@ import com.shangde.gao.service.JDBCServiceTest;
 import com.shangde.gao.service.LogTestService;
 import com.shangde.gao.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Date;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -24,8 +26,7 @@ public class CommonTestController {
     LogTestService logTestService;
 
     @RequestMapping("/jdbcServiceTest")
-    public String jdbcServiceTest()
-    {
+    public String jdbcServiceTest() {
         jdbcServiceTest.save();
         return "jdbcServiceTest over!";
     }
@@ -35,50 +36,31 @@ public class CommonTestController {
         return "Hello World!";
     }
 
-    @RequestMapping("/now")
-    String hehe() {
-        return "现在时间：" + (new Date()).toLocaleString();
-    }
-
-    @RequestMapping("/users/{username}")
-    public String userProfile(@PathVariable("username") String username) {
-        return String.format("user %s", username);
-    }
-
-    @RequestMapping("/posts/{id}")
-    public String post(@PathVariable("id") int id) {
-        return String.format("post %d", id);
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGet() {
-        return "Login Page";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginPost() {
-        return "Login Post Request";
-    }
-
     //测试url中参数和Head中参数的传递
     @RequestMapping("/testRequestParam/{city}")
-    public String testJson(@PathVariable("city") String cityName,String teacherName,String teacherOneRemark) {
+    public String testJson(@PathVariable("city") String cityName, String teacherName, String teacherOneRemark) {
 
-        return "teacherName="+teacherName+"</br>teacherOneRemark="+teacherOneRemark+"</br>cityName="+cityName;
+        return "teacherName=" + teacherName + "</br>teacherOneRemark=" + teacherOneRemark + "</br>cityName=" + cityName;
     }
 
-    @RequestMapping("/mapJsonTest")
-    public String testMapJson() {
-        Map param = new HashMap();
-        param.put("userId","11111");
-        param.put("role","teacher");
-        return JsonUtils.toJson(param);
-    }
+    @GetMapping("/reactTest")
+    public Map<String,List<Map<String,String>>> getJsonStr() {
 
-    @RequestMapping("/testLog")
-    public void testLog()
-    {
-        logTestService.testLog();
+        Map<String, String> paramMap1 = new HashMap<>();
+        Map<String, String> paramMap2 = new HashMap<>();
+        Map<String, String> paramMap3 = new HashMap<>();
+        paramMap1.put("imageUrl","https://lite3.sunlands.com/LiteResource/landing/title2018072511.jpg");
+        paramMap2.put("imageUrl","https://lite3.sunlands.com/LiteResource/landing/title2018080201.jpg");
+        paramMap3.put("imageUrl","https://lite3.sunlands.com/LiteResource/landing/title2018072508.jpg");
+        Map<String,List<Map<String,String>>> resultMap = new HashMap<>();
+        List<Map<String,String>> homeCarouselList = new ArrayList<>();
+        homeCarouselList.add(paramMap1);
+        homeCarouselList.add(paramMap2);
+        homeCarouselList.add(paramMap3);
+        resultMap.put("homeCarouselList", homeCarouselList);
+        System.out.println(System.currentTimeMillis()+"homeCarouselList= "+ homeCarouselList);
+        return resultMap;
+
     }
 
 
