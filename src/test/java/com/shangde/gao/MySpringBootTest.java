@@ -1,9 +1,6 @@
 package com.shangde.gao;
 
-import com.shangde.gao.dao.manager.UserManager;
 import com.shangde.gao.dao.mapper.admin.SysUserMapper;
-import com.shangde.gao.domain.BookBean;
-import com.shangde.gao.domain.SysUser;
 import com.shangde.gao.service.BookServiceImpl;
 import com.shangde.gao.service.UserService;
 import org.junit.Test;

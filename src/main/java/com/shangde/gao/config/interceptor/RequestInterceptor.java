@@ -31,7 +31,7 @@ public class RequestInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-
+        response.setHeader("Access-Control-Allow-Origin", "*");//允许跨域访问的域，可以是通配符”*”；
         long startTime = (Long) request.getAttribute("startTime");
 
         long endTime = System.currentTimeMillis();

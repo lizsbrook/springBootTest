@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,8 +45,8 @@ public class CommonTestController {
     }
 
     @GetMapping("/reactTest")
-    public Map<String,List<Map<String,String>>> getJsonStr() {
-
+    public String getJsonStr( HttpServletResponse response) {
+        //response.setHeader("Access-Control-Allow-Origin", "*");//允许跨域访问的域，可以是通配符”*”；
         Map<String, String> paramMap1 = new HashMap<>();
         Map<String, String> paramMap2 = new HashMap<>();
         Map<String, String> paramMap3 = new HashMap<>();
@@ -59,8 +60,7 @@ public class CommonTestController {
         homeCarouselList.add(paramMap3);
         resultMap.put("homeCarouselList", homeCarouselList);
         System.out.println(System.currentTimeMillis()+"homeCarouselList= "+ homeCarouselList);
-        return resultMap;
-
+        return JsonUtils.toJson(resultMap);
     }
 
 
