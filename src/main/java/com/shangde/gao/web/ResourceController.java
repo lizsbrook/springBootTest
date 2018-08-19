@@ -3,6 +3,7 @@ package com.shangde.gao.web;
 import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
 import com.shangde.gao.dao.mapper.main.ResourceMapper;
 import com.shangde.gao.domain.BucketFolder;
+import com.shangde.gao.domain.BucketFolderDTO;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,11 @@ public class ResourceController {
      */
     @RequestMapping(value = "/allFolderResources/{bucket}",method = RequestMethod.GET)
     public ResponseEntity<ResDTO> getAllFolderResources(@PathVariable String bucket){
+
+        List<BucketFolderDTO> bucketFolderList = new ArrayList<>();
         BucketFolder bucketFolder = new BucketFolder();
         bucketFolder.setBucket(bucket);
         List<BucketFolder> bucketFolders = bucketFolderMapper.select(bucketFolder);
-        List<List<Resource>> folderResources = new ArrayList<>();
         if(!CollectionUtils.isEmpty(bucketFolders))
         {
             //按照ID降序排列,新的BucketFolder需要排在前面
@@ -63,11 +65,14 @@ public class ResourceController {
                 }
             });
             bucketFolders.forEach(bucketFolder1 ->{
+                BucketFolderDTO bucketFolderDTO = new BucketFolderDTO();
+                bucketFolderDTO.setBucketFolder(bucketFolder1);
                 List<Resource> resources = resourceMapper.getResourcesByFolderId(bucketFolder1.getId());
-                folderResources.add(resources);
+                bucketFolderDTO.setResourceList(resources);
+                bucketFolderList.add(bucketFolderDTO);
             });
         }
-        return ResponseEntity.ok(successDate(folderResources));
+        return ResponseEntity.ok(successDate(bucketFolderList));
 
     }
 }

@@ -1,6 +1,8 @@
 package com.shangde.gao;
 
 import com.shangde.gao.dao.mapper.admin.SysUserMapper;
+import com.shangde.gao.dao.mapper.main.ResourceMapper;
+import com.shangde.gao.domain.Resource;
 import com.shangde.gao.service.BookServiceImpl;
 import com.shangde.gao.service.UserService;
 import org.junit.Test;
@@ -10,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -22,18 +26,11 @@ public class MySpringBootTest {
     private UserService userService;
 
     @Autowired
-    private SysUserMapper sysUserMapper;
+    private ResourceMapper resourceMapper;
     @Test
     public void dbTest(){
-//        BookBean bookBean = new BookBean();
-//        bookBean.setName("thinking in java111");
-//        bookBean =bookServiceImpl.selectOne(bookBean);
-//        System.out.println(bookBean);
-//
-//
-//        SysUser sysUser = sysUserMapper.selectOne(new SysUser("gaoming"));
-//        System.out.println(sysUser);
-//        System.out.println("-----测试完毕-------");
+        List<Resource>  resources  = resourceMapper.getResourcesByFolderId(15);
+        System.out.print("resouces = " +resources.size());
     }
 
 

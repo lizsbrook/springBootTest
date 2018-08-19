@@ -14,6 +14,10 @@ public class Resource extends MetaEntity {
     @Column(name = "`url`")
     private String url;
 
+    @ApiModelProperty(value = "视频资源封面图片URL")
+    @Column(name = "`poster_url`")
+    private String posterUrl;
+
     @ApiModelProperty(value = "资源类型  0:图片 1:视频")
     @Column(name = "`type`")
     private Integer type;
