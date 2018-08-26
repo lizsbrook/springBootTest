@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> 后端管理配置 </title>
+    <meta charset="UTF-8">
+</head>
+<link href="css/showLoading.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.showLoading.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#btnSave").click(function () {
+            var formData = new FormData($("#form-add-folder")[0]);
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/createFolder",
+                type:"post",
+                data:formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    alert("创建folder成功");
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("创建folder失败");
+                }
+            })
+        });
+        
+        $("#bucketId1").change(function(){
+            var bucket = document.getElementById("bucketId1");
+            var folder = document.getElementById("folderId1");
+            $("#folderId1").empty();
+            folder.add(new Option("--请选择bucket--","--请选择bucket--"));
+            //查询bucket的folder列表
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/listFolders?bucketName="+bucket.value,
+                type:"get",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    for(var i = 0;i<data.resultMessage.length;i++)
+                    {
+                        folder.add(new Option(data.resultMessage[i]['folder'],data.resultMessage[i]['folder']));
+                    }
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("获取folder列表失败");
+                }
+            })
+        });
+
+
+        //change和click是jquery方法,不能通过onChange来调用
+        $("#bucketId2").change(function(){
+            var bucket = document.getElementById("bucketId2");
+            var folder = document.getElementById("folderId2");
+            $("#folderId2").empty();
+            folder.add(new Option("--请选择bucket--","--请选择bucket--"));
+            //查询bucket的folder列表
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/listFolders?bucketName="+bucket.value,
+                type:"get",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    for(var i = 0;i<data.resultMessage.length;i++)
+                    {
+                        folder.add(new Option(data.resultMessage[i]['folder'],data.resultMessage[i]['folder']));
+                    }
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("获取folder列表失败");
+                }
+            })
+        });
+
+        $("#folderId2").change(function(){
+            var bucket = document.getElementById("bucketId2");
+            var folder = document.getElementById("folderId2");
+            $("#fileTable tbody").empty();
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/listFiles?bucketName="+bucket.value+"&folderName="+folder.value,
+                type:"get",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    for(var i = 0;i<data.resultMessage.length;i++)
+                    {
+                        $('#fileTable tbody').append('<tr><td>'+data.resultMessage[i]['url']+'</td></tr>');
+                    }
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("获取fileList列表失败");
+                }
+            })
+        })
+
+    })
+</script>
+<body>
+<--------------------------------创建bucket中folder------------------------------>
+<form id="form-add-folder">
+    <label>请选择bucket</label>
+    <select name="bucketName">
+        <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
+        <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
+    </select><br>
+    请上传OSS文件<br>
+    <input type="file"  id="uploadFile" name="uploadFile"/><br>
+    请填写创建的folder名称
+    <input type="text" id="folderName" name="folderName"><br>
+    请填写创建的folder名称在终端上的显示名称
+    <input type="text" id="displayName" name="displayName"><br>
+    <input type="button" id="btnSave" value="上传"/>
+</form>
+
+<br><br><br><--------------------------------上传文件至bucket中folder------------------------------>
+
+<form id="form-add-File">
+    <label>请选择bucket</label>
+    <select id = "bucketId1" name="bucketName1">
+        <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
+        <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
+    </select><br>
+    <label>请选择folder</label>
+    <select id = "folderId1" name="folderName1">
+        <option value="xiaoxiaodiao-photo" selected="selected">/aaa</option>
+        <option value="xiaoxiaodiao-video" >/bbb</option>
+    </select><br>
+    请上传OSS文件<br>
+    <input type="file"  id="uploadFile1" name="uploadFile"/><br>
+    <input type="button" id="btnSave1" value="上传"/>
+</form>
+
+<br><br><br><--------------------------------展示folder中文件列表------------------------------>
+
+<form id="form-bucket-list">
+    <label>请选择bucket</label>
+    <select id = "bucketId2"  name="bucketName2">
+        <option value="none">--请选择bucket--</option>
+        <option value="xiaoxiaodiao-photo" >xiaoxiaodiao-photo</option>
+        <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
+    </select><br>
+    <label>请选择folder</label>
+    <select id = "folderId2" name="folderName2">
+        <option value="none">--请选择folder--</option>
+    </select><br>
+</form>
+<table id="fileTable" border="1" cellpadding="5" cellspacing=0>
+    <tbody>
+    </tbody>
+</table>
+
