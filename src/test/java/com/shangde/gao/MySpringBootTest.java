@@ -29,8 +29,7 @@ public class MySpringBootTest {
     private ResourceMapper resourceMapper;
     @Test
     public void dbTest(){
-        List<Resource>  resources  = resourceMapper.getResourcesByFolderId(15);
-        System.out.print("resouces = " +resources.size());
+
     }
 
 

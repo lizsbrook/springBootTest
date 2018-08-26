@@ -1,0 +1,224 @@
+package com.shangde.gao.web;
+
+import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.event.ProgressEvent;
+import com.aliyun.oss.event.ProgressEventType;
+import com.aliyun.oss.event.ProgressListener;
+import com.aliyun.oss.model.OSSObjectSummary;
+import com.aliyun.oss.model.ObjectListing;
+import com.aliyun.oss.model.PutObjectRequest;
+import com.shangde.gao.config.dependConfig.OssConfig;
+import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
+import com.shangde.gao.dao.mapper.main.ResourceMapper;
+import com.shangde.gao.domain.BucketFolder;
+import com.shangde.gao.domain.Resource;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static com.shangde.gao.domain.RsJsonManager.successDate;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: gaoming01
+ * Date: 11:08 2018/8/22
+ * Description：OSS文件服务接口
+ */
+@RestController
+@RequestMapping("/api/v1/oss")
+public class OssController {
+
+    @Autowired
+    private OssConfig ossConfig;
+
+    @Autowired
+    private BucketFolderMapper bucketFolderMapper;
+
+    @Autowired
+    private ResourceMapper resourceMapper;
+
+
+    public class PutObjectProgressListener implements ProgressListener {
+        private long bytesWritten = 0;
+        private long totalBytes = -1;
+        private boolean succeed = false;
+
+        @Override
+        public void progressChanged(ProgressEvent progressEvent) {
+            long bytes = progressEvent.getBytes();
+            ProgressEventType eventType = progressEvent.getEventType();
+            switch (eventType) {
+                case TRANSFER_STARTED_EVENT:
+                    System.out.println("Start to upload......");
+                    break;
+                case REQUEST_CONTENT_LENGTH_EVENT:
+                    this.totalBytes = bytes;
+                    System.out.println(this.totalBytes + " bytes in total will be uploaded to OSS");
+                    break;
+                case REQUEST_BYTE_TRANSFER_EVENT:
+                    this.bytesWritten += bytes;
+                    if (this.totalBytes != -1) {
+                        int percent = (int) (this.bytesWritten * 100.0 / this.totalBytes);
+                        System.out.println(bytes + " bytes have been written at this time, upload progress: " + percent + "%(" + this.bytesWritten + "/" + this.totalBytes + ")");
+                    } else {
+                        System.out.println(bytes + " bytes have been written at this time, upload ratio: unknown" + "(" + this.bytesWritten + "/...)");
+                    }
+                    break;
+                case TRANSFER_COMPLETED_EVENT:
+                    this.succeed = true;
+                    System.out.println("Succeed to upload, " + this.bytesWritten + " bytes have been transferred in total");
+                    break;
+                case TRANSFER_FAILED_EVENT:
+                    System.out.println("Failed to upload, " + this.bytesWritten + " bytes have been transferred");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    @ApiOperation(value = "OSS创建一个folder", response = String.class)
+    @RequestMapping(value = "/createFolder",method = RequestMethod.POST)
+    public ResponseEntity createFolder(@RequestParam("uploadFile")  MultipartFile uploadFile,
+                                       @RequestParam(required = true,value = "bucketName") String bucketName,
+                                       @RequestParam(required = true,value = "folderName") String folderName,
+                                       @RequestParam(required = true,value = "displayName") String displayName
+                                       )
+    {
+        // 创建OSSClient实例
+        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
+        try {
+
+            //ossClient.putObject(bucketName, fileName, new ByteArrayInputStream(uploadFile.getBytes()));
+            //ossClient.putObject(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes()));
+            ossClient.putObject(bucketName, folderName+"/",new ByteArrayInputStream(uploadFile.getBytes()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            // 关闭client
+            ossClient.shutdown();
+        }
+        String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName;
+        System.out.println("resultUrl = "+ resultUrl);
+        //插入数据库lite_bucket_folder中
+         BucketFolder bucketFolder = new BucketFolder();
+         bucketFolder.setBucket(bucketName);
+         bucketFolder.setFolder(folderName);
+         bucketFolder.setDisplayName(displayName);
+         bucketFolderMapper.insert(bucketFolder);
+        return ResponseEntity.ok(successDate(resultUrl));
+    }
+
+
+    @ApiOperation(value = "OSS上传文件", response = String.class)
+    @RequestMapping(value = "/upload",method = RequestMethod.POST)
+    public ResponseEntity uploadFile(@RequestParam("uploadFile")  MultipartFile uploadFile,@RequestParam(required = true,value = "bucketName") String bucketName,@RequestParam(required = true,value = "folderName") String folderName)
+    {
+        // 创建OSSClient实例
+        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
+        String s = UUID.randomUUID().toString();
+        String uuidStr = s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
+        String fileName = uuidStr+uploadFile.getOriginalFilename().substring(uploadFile.getOriginalFilename().lastIndexOf("."));
+        try {
+
+            //ossClient.putObject(bucketName, fileName, new ByteArrayInputStream(uploadFile.getBytes()));
+            //ossClient.putObject(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes()));
+
+            // 带进度条的上传。
+            ossClient.putObject(new PutObjectRequest(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes())).
+                    withProgressListener(new PutObjectProgressListener()));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            // 关闭client
+            ossClient.shutdown();
+        }
+        String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+fileName;
+        System.out.println("resultUrl = "+ resultUrl);
+        return ResponseEntity.ok(successDate(resultUrl));
+    }
+
+    @ApiOperation(value = "OSS列举bucket中某个文件前缀的文件列表")
+    @RequestMapping(value = "/listFiles",method = RequestMethod.GET)
+    public ResponseEntity listFile(@RequestParam("bucketName") String bucketName,@RequestParam("folderName") String folderName)
+    {
+
+        //查询数据库，获取指定bucketName和制定folderName的资源列表
+        List<Resource> resources = resourceMapper.getResourcesByBucketAndFolderName(bucketName,folderName);
+        System.out.println("resources = "+ resources.size());
+        return ResponseEntity.ok(successDate(resources));
+//        List<String> resultStr = new ArrayList<>();
+//        // 创建OSSClient实例
+//        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
+//        try {
+//            // ossClient.listObjects返回ObjectListing实例，包含此次listObject请求的返回结果。
+//            ObjectListing objectListing = ossClient.listObjects(bucketName,"/"+folderName);
+//            // objectListing.getObjectSummaries获取所有文件的描述信息。
+//            for (OSSObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+//                //空文件夹忽略
+//                if(objectSummary.getKey().contains("."))
+//                {
+//                    resultStr.add("https://"+bucketName+"."+ossConfig.getEndpoint()+"/"+objectSummary.getKey());
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }finally {
+//            // 关闭client
+//            ossClient.shutdown();
+//        }
+//        return ResponseEntity.ok(successDate(resultStr));
+    }
+
+    @ApiOperation(value = "OSS列举bucket中所有文件夹列表")
+    @RequestMapping(value = "/listFolders",method = RequestMethod.GET)
+    public ResponseEntity listFolder(@RequestParam("bucketName") String bucketName)
+    {
+        //List<String> resultStr = new ArrayList<>();
+        //从数据库中获取bucket_folder列表
+        List<BucketFolder> bucketFolders = bucketFolderMapper.getFoldersByBucketName(bucketName);
+        System.out.println("bucketFoleders size = "+bucketFolders.size());
+        return ResponseEntity.ok(successDate(bucketFolders));
+        // 创建OSSClient实例
+//        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
+//        try {
+//            // 构造ListObjectsRequest请求。
+//            ListObjectsRequest listObjectsRequest = new ListObjectsRequest(bucketName);
+//            // 设置正斜线（/）为文件夹的分隔符。
+//            listObjectsRequest.setDelimiter("/");
+//            //listObjectsRequest.setPrefix("/fun");
+//            ObjectListing listing = ossClient.listObjects(listObjectsRequest);
+//            // 遍历所有文件。
+////            System.out.println("Objects:");
+////                // objectSummaries的列表中给出的是fun目录下的文件。
+////            for (OSSObjectSummary objectSummary : listing.getObjectSummaries()) {
+////                System.out.println(objectSummary.getKey());
+////            }
+//            // 遍历所有commonPrefix。
+//            System.out.println("\nCommonPrefixes:");
+//            // commonPrefixs列表中给出的当前目录下的所有子文件夹。
+//            for (String commonPrefix : listing.getCommonPrefixes()) {
+//                resultStr.add(commonPrefix);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }finally {
+//            // 关闭client
+//            ossClient.shutdown();
+//        }
+        //return ResponseEntity.ok(successDate(resultStr));
+    }
+
+}

@@ -9,6 +9,7 @@ spring:
              username: root
              password: gaoming123@
 
+
 redis:
   maxTotal: 400
   maxIdle: 200
@@ -27,3 +28,10 @@ wx:
   loginUrL: https://api.weixin.qq.com/sns/jscode2session
 
 env: dev
+
+
+#阿里云oss对象存储配置
+ossconfig:
+  endpoint: oss-cn-qingdao.aliyuncs.com
+  accessKeyId: LTAIknSCxofHdxtj
+  accessKeySecret: RzWWTMmkZN0FwZA3ZNlpRk8xzcIqvc

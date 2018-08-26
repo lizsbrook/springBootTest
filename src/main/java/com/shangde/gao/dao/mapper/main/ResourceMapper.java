@@ -11,6 +11,12 @@ import java.util.List;
 @Mapper
 public interface ResourceMapper extends BaseMapper<Resource> {
 
-    @Select("select a.id as id,a.url as url,a.type as type, a.poster_url as posterUrl,a.short_description as shortDescription,a.long_description as longDescription,a.content_type as contentType from lite_resource a,lite_bucket_folder_resource b where b.bucket_folder_id = #{bucketFolderId} and a.id = b.resource_id and a.delete_flag = 0 ")
+    @Select("select a.id as id,a.url as url,a.type as type, a.poster_url as posterUrl,a.short_description as shortDescription,a.long_description as longDescription,a.content_type as contentType from lite_resource a,lite_bucket_folder_resource b where b.bucket_folder_id = #{bucketFolderId} and a.id = b.resource_id and a.delete_flag = 0 order by a.id desc ")
     List<Resource> getResourcesByFolderId(@Param("bucketFolderId") Integer bucketFolderId);
+
+
+    @Select("select c.* from lite_bucket_folder a,lite_bucket_folder_resource b,lite_resource c\n" +
+            "where a.bucket = #{bucketName} and a.folder=#{folderName} and a.id= b.bucket_folder_id and b.resource_id = c.id")
+    List<Resource> getResourcesByBucketAndFolderName(@Param("bucketName") String bucketName,@Param("folderName") String folderName);
+
 }
