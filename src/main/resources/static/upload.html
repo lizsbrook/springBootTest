@@ -10,12 +10,19 @@
 <script type="text/javascript">
     $(function(){
         $("#btnSave").click(function () {
-            var formData = new FormData($("#form-add-folder")[0]);
+            var bucketName = document.getElementById("bucketId");
+            var folderName = document.getElementById("folderName");
+            var displayName =  document.getElementById("displayName");
+            var form = new FormData();
+            form.append("bucketName",bucketName.value);
+            form.append("folderName",folderName.value);
+            form.append("displayName",displayName.value);
+            form.append('uploadFile', $('#uploadFile')[0].files[0]);
             $.ajax({
                 async:true,
                 url:"api/v1/oss/createFolder",
                 type:"post",
-                data:formData,
+                data:form,
                 cache: false,
                 contentType: false,
                 processData: false,
@@ -115,9 +122,9 @@
 </script>
 <body>
 <--------------------------------创建bucket中folder------------------------------>
-<form id="form-add-folder">
+<form id="form-add-folder" enctype="multipart/form-data">
     <label>请选择bucket</label>
-    <select name="bucketName">
+    <select id = "bucketId" name="bucketName">
         <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
         <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
     </select><br>
