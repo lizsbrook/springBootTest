@@ -9,10 +9,14 @@ import com.aliyun.oss.model.ObjectListing;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.shangde.gao.config.dependConfig.OssConfig;
 import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
+import com.shangde.gao.dao.mapper.main.BucketFolderResourceMapper;
 import com.shangde.gao.dao.mapper.main.ResourceMapper;
 import com.shangde.gao.domain.BucketFolder;
+import com.shangde.gao.domain.BucketFolderResource;
 import com.shangde.gao.domain.Resource;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +43,8 @@ import static com.shangde.gao.domain.RsJsonManager.successDate;
 @RequestMapping("/api/v1/oss")
 public class OssController {
 
+    private static final Logger logger = LoggerFactory.getLogger(OssController.class);
+
     @Autowired
     private OssConfig ossConfig;
 
@@ -47,6 +53,9 @@ public class OssController {
 
     @Autowired
     private ResourceMapper resourceMapper;
+
+    @Autowired
+    private BucketFolderResourceMapper bucketFolderResourceMapper;
 
 
     public class PutObjectProgressListener implements ProgressListener {
@@ -110,26 +119,34 @@ public class OssController {
             ossClient.shutdown();
         }
         String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName;
-        System.out.println("resultUrl = "+ resultUrl);
+        logger.info("createFolder :resultUrl = "+ resultUrl);
         //插入数据库lite_bucket_folder中
          BucketFolder bucketFolder = new BucketFolder();
          bucketFolder.setBucket(bucketName);
          bucketFolder.setFolder(folderName);
          bucketFolder.setDisplayName(displayName);
-         bucketFolderMapper.insert(bucketFolder);
+         bucketFolderMapper.insertSelective(bucketFolder);
+        logger.info("createFolder :insert db over");
         return ResponseEntity.ok(successDate(resultUrl));
     }
 
 
     @ApiOperation(value = "OSS上传文件", response = String.class)
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
-    public ResponseEntity uploadFile(@RequestParam("uploadFile")  MultipartFile uploadFile,@RequestParam(required = true,value = "bucketName") String bucketName,@RequestParam(required = true,value = "folderName") String folderName)
+    public ResponseEntity uploadFile(@RequestParam("uploadFile")  MultipartFile uploadFile,
+                                     @RequestParam("posterFile")  MultipartFile posterFile,
+                                     @RequestParam(required = true,value = "bucketName") String bucketName,
+                                     @RequestParam(required = true,value = "folderName") String folderName,
+                                     @RequestParam(required = true,value = "type") String type,
+                                     @RequestParam(required = true,value = "introduction") String introduction
+                                     )
     {
         // 创建OSSClient实例
         OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
         String s = UUID.randomUUID().toString();
         String uuidStr = s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
         String fileName = uuidStr+uploadFile.getOriginalFilename().substring(uploadFile.getOriginalFilename().lastIndexOf("."));
+        String postFileName = uuidStr + posterFile.getOriginalFilename().substring(posterFile.getOriginalFilename().lastIndexOf("."));
         try {
 
             //ossClient.putObject(bucketName, fileName, new ByteArrayInputStream(uploadFile.getBytes()));
@@ -139,6 +156,10 @@ public class OssController {
             ossClient.putObject(new PutObjectRequest(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes())).
                     withProgressListener(new PutObjectProgressListener()));
 
+            // 带进度条的上传。
+            ossClient.putObject(new PutObjectRequest(bucketName, folderName+postFileName, new ByteArrayInputStream(posterFile.getBytes())).
+                    withProgressListener(new PutObjectProgressListener()));
+
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
@@ -146,7 +167,28 @@ public class OssController {
             ossClient.shutdown();
         }
         String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+fileName;
-        System.out.println("resultUrl = "+ resultUrl);
+        String postUrl = "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+postFileName;
+        logger.info("upload :uploadFileUrl = "+ resultUrl);
+        logger.info("upload :postUrl = "+ postUrl);
+        //开始插入数据库
+        BucketFolder bucketFolder = new BucketFolder();
+        bucketFolder.setBucket(bucketName);
+        bucketFolder.setFolder(folderName);
+        List<BucketFolder> bucketFolders = bucketFolderMapper.select(bucketFolder);
+        BucketFolder insertBucketFolder = bucketFolders.get(0);
+        //插入资源
+        Resource resource = new Resource();
+        resource.setUrl(resultUrl);
+        resource.setPosterUrl(postUrl);
+        resource.setType(Integer.parseInt(type));
+        resource.setShortDescription(introduction);
+        resourceMapper.insertSelective(resource);
+        //插入资源和folder对应关系
+        BucketFolderResource bucketFolderResource = new BucketFolderResource();
+        bucketFolderResource.setResourceId(resource.getId());
+        bucketFolderResource.setBucketFolderId(insertBucketFolder.getId());
+        bucketFolderResourceMapper.insertSelective(bucketFolderResource);
+        logger.info("uploadFile over ");
         return ResponseEntity.ok(successDate(resultUrl));
     }
 

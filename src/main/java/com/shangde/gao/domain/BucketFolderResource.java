@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class BucketFolderResource extends MetaEntity {
     @ApiModelProperty(value = "阿里云oss bucket folder Id")
     @Column(name = "`bucket_folder_id`")
-    private String bucketFolderId;
+    private Integer bucketFolderId;
 
     @ApiModelProperty(value = "资源ID")
     @Column(name = "`resource_id`")

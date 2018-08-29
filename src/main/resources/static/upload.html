@@ -9,15 +9,67 @@
 <script type="text/javascript" src="js/jquery.showLoading.min.js"></script>
 <script type="text/javascript">
     $(function(){
+        //上传文件
+        $("#btnSave1").click(function () {
+            var bucketName = document.getElementById("bucketId1");
+            var folderName = document.getElementById("folderId1");
+            var uploadFile =  document.getElementById("uploadFile1");
+            var introduction = document.getElementById("introduction1");
+
+            if(uploadFile.value=='')
+            {
+                alert('请选择要上传的文件');
+                return;
+            }
+            var type = "";
+            var stuff=uploadFile.value.match(/^(.*)(\.)(.{1,8})$/)[3];
+            if(stuff =='jpg' || stuff =='png')
+            {
+                type = 0;
+            }
+            else if(stuff =='mp4' || stuff =='wmv' || stuff =='rmvb' ){
+                type = 1;
+            }else{
+                alert('上传文件类型不正确，请选择jpg|png的照片文件或者mp4|wmv|rmvb的视频文件');
+                return;
+            }
+            var form = new FormData();
+            form.append("type",type);
+            form.append("bucketName",bucketName.value);
+            form.append("folderName",folderName.value);
+            form.append("introduction",introduction.value);
+            form.append('uploadFile', $('#uploadFile1')[0].files[0]);
+            form.append('posterFile', $('#posterFile1')[0].files[0]);
+
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/upload",
+                type:"post",
+                data:form,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    alert("上传文件成功");
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("上传文件失败");
+                }
+            })
+        });
+        //创建bucket中folder
         $("#btnSave").click(function () {
             var bucketName = document.getElementById("bucketId");
             var folderName = document.getElementById("folderName");
-            var displayName =  document.getElementById("displayName");
+            var displayName = document.getElementById("displayName");
             var form = new FormData();
+            form.append("type",type);
             form.append("bucketName",bucketName.value);
             form.append("folderName",folderName.value);
             form.append("displayName",displayName.value);
-            form.append('uploadFile', $('#uploadFile')[0].files[0]);
+
             $.ajax({
                 async:true,
                 url:"api/v1/oss/createFolder",
@@ -36,10 +88,11 @@
                 }
             })
         });
-        
+        //上传文件至bucket中folder
         $("#bucketId1").change(function(){
             var bucket = document.getElementById("bucketId1");
             var folder = document.getElementById("folderId1");
+            var obj = document.getElementById('file');
             $("#folderId1").empty();
             folder.add(new Option("--请选择bucket--","--请选择bucket--"));
             //查询bucket的folder列表
@@ -64,7 +117,7 @@
             })
         });
 
-
+        //展示folder中文件列表
         //change和click是jquery方法,不能通过onChange来调用
         $("#bucketId2").change(function(){
             var bucket = document.getElementById("bucketId2");
@@ -139,7 +192,7 @@
 
 <br><br><br><--------------------------------上传文件至bucket中folder------------------------------>
 
-<form id="form-add-File">
+<form id="form-add-File" enctype="multipart/form-data">
     <label>请选择bucket</label>
     <select id = "bucketId1" name="bucketName1">
         <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
@@ -147,11 +200,14 @@
     </select><br>
     <label>请选择folder</label>
     <select id = "folderId1" name="folderName1">
-        <option value="xiaoxiaodiao-photo" selected="selected">/aaa</option>
-        <option value="xiaoxiaodiao-video" >/bbb</option>
+        <option value="none">--请选择folder--</option>
     </select><br>
     请上传OSS文件<br>
     <input type="file"  id="uploadFile1" name="uploadFile"/><br>
+    请上传封面图(仅针对视频文件)<br>
+    <input type="file"  id="posterFile1" name="posterFile"/><br>
+    请输入该资源简介<br>
+    <textarea id="introduction1" name="introduction"></textarea><br>
     <input type="button" id="btnSave1" value="上传"/>
 </form>
 
