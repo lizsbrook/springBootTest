@@ -8,7 +8,10 @@ spring:
              url: jdbc:mysql://47.104.66.131:3306/gm_admin
              username: root
              password: gaoming123@
-
+  #上传的文件请求大小
+  server:
+         MaxFileSize: 30MB
+         MaxRequestSize: 50MB
 
 redis:
   maxTotal: 400
