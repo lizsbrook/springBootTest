@@ -4,8 +4,6 @@ import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.event.ProgressEvent;
 import com.aliyun.oss.event.ProgressEventType;
 import com.aliyun.oss.event.ProgressListener;
-import com.aliyun.oss.model.OSSObjectSummary;
-import com.aliyun.oss.model.ObjectListing;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.shangde.gao.config.dependConfig.OssConfig;
 import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
@@ -27,7 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,7 +54,7 @@ public class OssController {
     @Autowired
     private BucketFolderResourceMapper bucketFolderResourceMapper;
 
-
+    //后台异步上传进度
     public class PutObjectProgressListener implements ProgressListener {
         private long bytesWritten = 0;
         private long totalBytes = -1;
@@ -99,11 +96,10 @@ public class OssController {
 
     @ApiOperation(value = "OSS创建一个folder", response = String.class)
     @RequestMapping(value = "/createFolder",method = RequestMethod.POST)
-    public ResponseEntity createFolder(@RequestParam("uploadFile")  MultipartFile uploadFile,
-                                       @RequestParam(required = true,value = "bucketName") String bucketName,
+    public ResponseEntity createFolder(@RequestParam(required = true,value = "bucketName") String bucketName,
                                        @RequestParam(required = true,value = "folderName") String folderName,
                                        @RequestParam(required = true,value = "displayName") String displayName
-                                       )
+    )
     {
         // 创建OSSClient实例
         OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
@@ -111,7 +107,8 @@ public class OssController {
 
             //ossClient.putObject(bucketName, fileName, new ByteArrayInputStream(uploadFile.getBytes()));
             //ossClient.putObject(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes()));
-            ossClient.putObject(bucketName, folderName+"/",new ByteArrayInputStream(uploadFile.getBytes()));
+            byte[] buf = new byte[]{};
+            ossClient.putObject(bucketName, folderName+"/",new ByteArrayInputStream(buf));
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -121,11 +118,11 @@ public class OssController {
         String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName;
         logger.info("createFolder :resultUrl = "+ resultUrl);
         //插入数据库lite_bucket_folder中
-         BucketFolder bucketFolder = new BucketFolder();
-         bucketFolder.setBucket(bucketName);
-         bucketFolder.setFolder(folderName);
-         bucketFolder.setDisplayName(displayName);
-         bucketFolderMapper.insertSelective(bucketFolder);
+        BucketFolder bucketFolder = new BucketFolder();
+        bucketFolder.setBucket(bucketName);
+        bucketFolder.setFolder(folderName);
+        bucketFolder.setDisplayName(displayName);
+        bucketFolderMapper.insertSelective(bucketFolder);
         logger.info("createFolder :insert db over");
         return ResponseEntity.ok(successDate(resultUrl));
     }
@@ -139,7 +136,7 @@ public class OssController {
                                      @RequestParam(required = true,value = "folderName") String folderName,
                                      @RequestParam(required = true,value = "type") String type,
                                      @RequestParam(required = true,value = "introduction") String introduction
-                                     )
+    )
     {
         // 创建OSSClient实例
         OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
@@ -166,8 +163,8 @@ public class OssController {
             // 关闭client
             ossClient.shutdown();
         }
-        String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+fileName;
-        String postUrl = "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+postFileName;
+        String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+"/"+fileName;
+        String postUrl = "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+"/"+postFileName;
         logger.info("upload :uploadFileUrl = "+ resultUrl);
         logger.info("upload :postUrl = "+ postUrl);
         //开始插入数据库
@@ -192,16 +189,17 @@ public class OssController {
         return ResponseEntity.ok(successDate(resultUrl));
     }
 
-    @ApiOperation(value = "OSS列举bucket中某个文件前缀的文件列表")
+    @ApiOperation(value = "后台获取OSS的bucket中某个文件前缀的文件列表")
     @RequestMapping(value = "/listFiles",method = RequestMethod.GET)
     public ResponseEntity listFile(@RequestParam("bucketName") String bucketName,@RequestParam("folderName") String folderName)
     {
 
         //查询数据库，获取指定bucketName和制定folderName的资源列表
         List<Resource> resources = resourceMapper.getResourcesByBucketAndFolderName(bucketName,folderName);
-        System.out.println("resources = "+ resources.size());
         return ResponseEntity.ok(successDate(resources));
-//        List<String> resultStr = new ArrayList<>();
+
+// 列举OSS中文件夹的文件列表
+// List<String> resultStr = new ArrayList<>();
 //        // 创建OSSClient实例
 //        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
 //        try {
@@ -224,16 +222,16 @@ public class OssController {
 //        return ResponseEntity.ok(successDate(resultStr));
     }
 
-    @ApiOperation(value = "OSS列举bucket中所有文件夹列表")
+    @ApiOperation(value = "后台获取OSS的bucket中所有文件夹列表")
     @RequestMapping(value = "/listFolders",method = RequestMethod.GET)
     public ResponseEntity listFolder(@RequestParam("bucketName") String bucketName)
     {
         //List<String> resultStr = new ArrayList<>();
         //从数据库中获取bucket_folder列表
         List<BucketFolder> bucketFolders = bucketFolderMapper.getFoldersByBucketName(bucketName);
-        System.out.println("bucketFoleders size = "+bucketFolders.size());
         return ResponseEntity.ok(successDate(bucketFolders));
-        // 创建OSSClient实例
+
+//  列举OSS中bucket中的文件夹列表
 //        OSSClient ossClient = new OSSClient(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
 //        try {
 //            // 构造ListObjectsRequest请求。

@@ -9,7 +9,36 @@
 <script type="text/javascript" src="js/jquery.showLoading.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        //上传文件
+        //1、创建bucket中folder
+        $("#btnSave").click(function () {
+            var bucketName = document.getElementById("bucketId");
+            var folderName = document.getElementById("folderName");
+            var displayName = document.getElementById("displayName");
+            var form = new FormData();
+            form.append("bucketName",bucketName.value);
+            form.append("folderName",folderName.value);
+            form.append("displayName",displayName.value);
+
+            $.ajax({
+                async:true,
+                url:"api/v1/oss/createFolder",
+                type:"post",
+                data:form,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("body").hideLoading();
+                    alert("创建folder成功");
+                },
+                error: function (data) {
+                    $("body").hideLoading();
+                    alert("创建folder失败");
+                }
+            })
+        });
+
+        //2、上传文件至bucket中folder
         $("#btnSave1").click(function () {
             var bucketName = document.getElementById("bucketId1");
             var folderName = document.getElementById("folderId1");
@@ -41,6 +70,8 @@
             form.append('uploadFile', $('#uploadFile1')[0].files[0]);
             form.append('posterFile', $('#posterFile1')[0].files[0]);
 
+//            var formData = new FormData($("#form-add-File")[0]);
+
             $.ajax({
                 async:true,
                 url:"api/v1/oss/upload",
@@ -59,36 +90,6 @@
                 }
             })
         });
-        //创建bucket中folder
-        $("#btnSave").click(function () {
-            var bucketName = document.getElementById("bucketId");
-            var folderName = document.getElementById("folderName");
-            var displayName = document.getElementById("displayName");
-            var form = new FormData();
-            form.append("type",type);
-            form.append("bucketName",bucketName.value);
-            form.append("folderName",folderName.value);
-            form.append("displayName",displayName.value);
-
-            $.ajax({
-                async:true,
-                url:"api/v1/oss/createFolder",
-                type:"post",
-                data:form,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success:function(data){
-                    $("body").hideLoading();
-                    alert("创建folder成功");
-                },
-                error: function (data) {
-                    $("body").hideLoading();
-                    alert("创建folder失败");
-                }
-            })
-        });
-        //上传文件至bucket中folder
         $("#bucketId1").change(function(){
             var bucket = document.getElementById("bucketId1");
             var folder = document.getElementById("folderId1");
@@ -117,7 +118,7 @@
             })
         });
 
-        //展示folder中文件列表
+        //3、展示folder中文件列表
         //change和click是jquery方法,不能通过onChange来调用
         $("#bucketId2").change(function(){
             var bucket = document.getElementById("bucketId2");
@@ -145,7 +146,6 @@
                 }
             })
         });
-
         $("#folderId2").change(function(){
             var bucket = document.getElementById("bucketId2");
             var folder = document.getElementById("folderId2");
@@ -181,8 +181,6 @@
         <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
         <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
     </select><br>
-    请上传OSS文件<br>
-    <input type="file"  id="uploadFile" name="uploadFile"/><br>
     请填写创建的folder名称
     <input type="text" id="folderName" name="folderName"><br>
     请填写创建的folder名称在终端上的显示名称
@@ -195,7 +193,8 @@
 <form id="form-add-File" enctype="multipart/form-data">
     <label>请选择bucket</label>
     <select id = "bucketId1" name="bucketName1">
-        <option value="xiaoxiaodiao-photo" selected="selected">xiaoxiaodiao-photo</option>
+        <option value="none">--请选择bucket--</option>
+        <option value="xiaoxiaodiao-photo" >xiaoxiaodiao-photo</option>
         <option value="xiaoxiaodiao-video" >xiaoxiaodiao-video</option>
     </select><br>
     <label>请选择folder</label>
