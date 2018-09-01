@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -130,12 +131,12 @@ public class OssController {
 
     @ApiOperation(value = "OSS上传文件", response = String.class)
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
-    public ResponseEntity uploadFile(@RequestParam("uploadFile")  MultipartFile uploadFile,
-                                     @RequestParam("posterFile")  MultipartFile posterFile,
+    public ResponseEntity uploadFile(@RequestParam(value = "uploadFile")  MultipartFile uploadFile,
+                                     @RequestParam(required = false,value = "posterFile")  MultipartFile posterFile,
                                      @RequestParam(required = true,value = "bucketName") String bucketName,
                                      @RequestParam(required = true,value = "folderName") String folderName,
                                      @RequestParam(required = true,value = "type") String type,
-                                     @RequestParam(required = true,value = "introduction") String introduction
+                                     @RequestParam(required = false,value = "introduction") String introduction
     )
     {
         // 创建OSSClient实例
@@ -143,28 +144,41 @@ public class OssController {
         String s = UUID.randomUUID().toString();
         String uuidStr = s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
         String fileName = uuidStr+uploadFile.getOriginalFilename().substring(uploadFile.getOriginalFilename().lastIndexOf("."));
-        String postFileName = uuidStr + posterFile.getOriginalFilename().substring(posterFile.getOriginalFilename().lastIndexOf("."));
+        String postFileName = "";
+        if(posterFile != null)
+        {
+            postFileName = uuidStr + posterFile.getOriginalFilename().substring(posterFile.getOriginalFilename().lastIndexOf("."));
+
+        }
         try {
 
             //ossClient.putObject(bucketName, fileName, new ByteArrayInputStream(uploadFile.getBytes()));
             //ossClient.putObject(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes()));
 
             // 带进度条的上传。
-            ossClient.putObject(new PutObjectRequest(bucketName, folderName+fileName, new ByteArrayInputStream(uploadFile.getBytes())).
+            ossClient.putObject(new PutObjectRequest(bucketName, folderName+"/"+fileName, new ByteArrayInputStream(uploadFile.getBytes())).
                     withProgressListener(new PutObjectProgressListener()));
 
             // 带进度条的上传。
-            ossClient.putObject(new PutObjectRequest(bucketName, folderName+postFileName, new ByteArrayInputStream(posterFile.getBytes())).
-                    withProgressListener(new PutObjectProgressListener()));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
+            if(!StringUtils.isEmpty(postFileName))
+            {
+                ossClient.putObject(new PutObjectRequest(bucketName, folderName+"/"+postFileName, new ByteArrayInputStream(posterFile.getBytes())).
+                        withProgressListener(new PutObjectProgressListener()));
+            }
+        }catch (Exception e){
+            logger.info("上传OSS文件失败 bucketName="+bucketName + " folderName"+folderName+" uploadFile="+uploadFile.getOriginalFilename());
+        }
+        finally
+        {
             // 关闭client
             ossClient.shutdown();
         }
         String resultUrl =  "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+"/"+fileName;
-        String postUrl = "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+"/"+postFileName;
+        String postUrl = "";
+        if(!StringUtils.isEmpty(postFileName))
+        {
+            postUrl = "https://" + bucketName +"."+ ossConfig.getEndpoint() + "/" + folderName+"/"+postFileName;
+        }
         logger.info("upload :uploadFileUrl = "+ resultUrl);
         logger.info("upload :postUrl = "+ postUrl);
         //开始插入数据库
