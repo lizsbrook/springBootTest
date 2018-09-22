@@ -207,6 +207,7 @@ public class OssController {
     @RequestMapping(value = "/listFiles",method = RequestMethod.GET)
     public ResponseEntity listFile(@RequestParam("bucketName") String bucketName,@RequestParam("folderName") String folderName)
     {
+        logger.info("oss :listFile ");
 
         //查询数据库，获取指定bucketName和制定folderName的资源列表
         List<Resource> resources = resourceMapper.getResourcesByBucketAndFolderName(bucketName,folderName);
@@ -240,6 +241,7 @@ public class OssController {
     @RequestMapping(value = "/listFolders",method = RequestMethod.GET)
     public ResponseEntity listFolder(@RequestParam("bucketName") String bucketName)
     {
+        logger.info("oss :listFolder ");
         //List<String> resultStr = new ArrayList<>();
         //从数据库中获取bucket_folder列表
         List<BucketFolder> bucketFolders = bucketFolderMapper.getFoldersByBucketName(bucketName);

@@ -22,7 +22,7 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 public class LoginController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoggerFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
    @Autowired
    private WXConfig wxConfig;

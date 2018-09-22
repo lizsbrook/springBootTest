@@ -1,0 +1,40 @@
+spring:
+  datasource:
+           main:
+             url: jdbc:mysql://47.104.66.131:3306/dbTest
+             username: root
+             password: gaoming123@
+           admin:
+             url: jdbc:mysql://47.104.66.131:3306/gm_admin
+             username: root
+             password: gaoming123@
+  #上传的文件请求大小
+  server:
+         MaxFileSize: 30MB
+         MaxRequestSize: 50MB
+
+redis:
+  maxTotal: 400
+  maxIdle: 200
+  maxWaitMillis: 1000
+  testOnBorrow: true
+  host: 47.104.66.131
+  port: 9681
+  timeout: 10000
+  password: fiberhome001A@123
+
+
+#微信APP开发配置
+wx:
+  appid: wx50da7efdcdf03f28
+  secret: b4eba8f26b3d9822768889343a79d32e
+  loginUrL: https://api.weixin.qq.com/sns/jscode2session
+
+env: dev
+
+
+#阿里云oss对象存储配置
+ossconfig:
+  endpoint: oss-cn-qingdao.aliyuncs.com
+  accessKeyId: LTAIknSCxofHdxtj
+  accessKeySecret: RzWWTMmkZN0FwZA3ZNlpRk8xzcIqvc
