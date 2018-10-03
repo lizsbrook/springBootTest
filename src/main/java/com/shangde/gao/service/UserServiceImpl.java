@@ -19,37 +19,17 @@ import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.*;
 
+import static com.shangde.gao.domain.RsJsonManager.successDate;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private UserMapper userMapper;
-    @Autowired
     private UserManager userManager;
     @Autowired
     private RedisService redisService;
-
-    //获取用户属性，动态获取对象属性值
-    private static List<Field> userFields = Arrays.asList(User.class.getDeclaredFields());
-
-    //用户接口和个人中心用户接口字段映射
-    private static Map<String, String> fieldToAccountFieldMap = new HashMap<>();
-
-    //同步个人中心相关初始化操作-初始化需要传的字段映射
-    static {
-        fieldToAccountFieldMap.put("unionid", "unionId");
-        fieldToAccountFieldMap.put("mobile", "mobile");
-        fieldToAccountFieldMap.put("name", "userName");
-        fieldToAccountFieldMap.put("nickname", "wxNickName");
-        fieldToAccountFieldMap.put("avatarUrl", "wxImg");
-        fieldToAccountFieldMap.put("gender", "sex");
-        fieldToAccountFieldMap.put("city", "city");
-        fieldToAccountFieldMap.put("province", "province");
-        fieldToAccountFieldMap.put("channelCode", "channelCode");
-    }
-
 
     @Override
     public ResDTO updateUser(User user) {
@@ -83,7 +63,7 @@ public class UserServiceImpl implements UserService {
         }
         userManager.updateByPrimaryKeySelective(user);
 
-        return RsJsonManager.getResultJson().reDataSuccess(map);
+        return successDate(map);
     }
 
 
@@ -93,17 +73,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int insert(User user) {
-        User queryUser = new User(user.getOpenid());
-        User userSelect = userManager.selectOne(queryUser);
-        if (null != userSelect) {
-            if (null != user.getUnionid() && null == userSelect.getUnionid()) {
-                //更新unionid
-                this.updateUser(user);
-            }
-            return 0;
+    public User insert(String openid) {
+        User userParam = new User(openid);
+        User userSelect = userManager.selectOne(userParam);
+        if (null == userSelect) {
+            userManager.insert(userParam);
+            return userParam;
         }
-        return userManager.insert(user);
+        return userSelect;
+
     }
 
 
@@ -115,70 +93,13 @@ public class UserServiceImpl implements UserService {
         }
         String result = WXDecrypt.decrypt(user.getEncryptedData(), sessionKey, user.getIv());
         logger.info("decrypt over ,user info :{}", result);
-        return RsJsonManager.getResultJson().reDataSuccess(JsonUtils.toBean(result, Map.class));
+        return successDate(JsonUtils.toBean(result, Map.class));
     }
 
 
     @Override
     public String getMobileByOpenId(String openId) {
         return userManager.getMobileByOpenId(openId);
-    }
-
-    private Map<String, String> generateParamForAddUserInfo(User user) {
-        TreeSet<String> set = new TreeSet<>();
-        Map<String, String> paramString = new HashMap<>();
-        //反射遍历对象中属性值
-        userFields.forEach(field ->
-        {
-            field.setAccessible(true);
-            final String fieldName = fieldToAccountFieldMap.get(field.getName());
-            try {
-                Optional.ofNullable(field.get(user))
-                        .filter(s -> !StringUtils.isEmpty(fieldName))
-                        .map(s ->
-                        {
-                            if ("wxNickName".equals(fieldName)
-                                    || "province".equals(fieldName)
-                                    || "city".equals(fieldName)) {
-                                String encodeStr = null;
-                                try {
-                                    encodeStr = URLEncoder.encode(String.valueOf(s), "utf-8");
-                                    set.add("&" + fieldName + "=" + encodeStr);
-                                    paramString.put(fieldName, encodeStr);
-                                } catch (UnsupportedEncodingException e) {
-                                    //如果转化有问题,则该属性不传
-                                    logger.info("encodeStr error field:{}, value : {} ", encodeStr, String.valueOf(s));
-                                }
-                            } else {
-                                set.add("&" + fieldName + "=" + s);
-                                paramString.put(fieldName, String.valueOf(s));
-                            }
-                            return s;
-                        });
-
-            } catch (IllegalAccessException e) {
-                logger.info("generateParamForAddUserInfo IllegalAccessException  {} ", e);
-            }
-        });
-
-        //对构造的排序集合串进行进行遍历
-        StringBuilder sb = new StringBuilder();
-        set.forEach(sb::append);
-        if (sb.charAt(0) == '&') {
-            sb.deleteCharAt(0);
-        }
-        sb.append("&wechatAppShangde17!");
-
-        //把最终的串加上MD5，方便鉴权
-        paramString.put("sign", DigestUtils.md5Hex(sb.toString().getBytes()));
-        logger.info(" 跟个人中心传入参数为 {}", paramString.toString());
-        return paramString;
-    }
-
-
-    @Override
-    public User selectByPrimaryKey(Integer id) {
-        return userMapper.selectByPrimaryKey(id);
     }
 
 }

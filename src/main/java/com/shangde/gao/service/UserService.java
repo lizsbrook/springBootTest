@@ -10,9 +10,7 @@ public interface UserService {
 
     User selectOne(User user);
 
-    int insert(User user);
+    User insert(String openid);
 
     ResDTO decrypt(User user);
-
-    User selectByPrimaryKey(Integer id);
 }
