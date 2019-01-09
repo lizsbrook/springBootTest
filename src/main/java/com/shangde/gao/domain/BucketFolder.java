@@ -1,5 +1,6 @@
 package com.shangde.gao.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Table(name = "`lite_bucket_folder`")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BucketFolder extends MetaEntity {
     public BucketFolder()
     {

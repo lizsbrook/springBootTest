@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 @Data
 @Table(name = "`lite_resource`")
@@ -41,4 +42,8 @@ public class Resource extends MetaEntity {
     @ApiModelProperty(value = "照片的内容场景(游泳、玩具、吃奶、发烧等生活事件)")
     @Column(name = "`content_type`")
     private String contentType;
+
+    @Transient
+    @ApiModelProperty(value = "资源所在的组文件夹名称")
+    private String bucketFolderName;
 }

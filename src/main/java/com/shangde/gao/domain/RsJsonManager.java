@@ -16,6 +16,8 @@ public class RsJsonManager {
     private static ThreadLocal<BaseResultJson> resultJsonThreadLocal =new ThreadLocal<>();
 
 
+    private static ThreadLocal<String> resultStringThreadLocal = new ThreadLocal<>();
+
     public static <T> ResDTO<T> success() {
         return RsJsonManager.getResultJson().reSuccess();
     }
@@ -50,4 +52,7 @@ public class RsJsonManager {
         return  dto;
     }
 
+    public static  String getResult() {
+        return resultStringThreadLocal.get();
+    }
 }
