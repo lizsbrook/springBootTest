@@ -14,6 +14,4 @@ import java.util.List;
 public interface BucketFolderMapper extends BaseMapper<BucketFolder> {
     @Select("select id,folder,display_name as displayName  from lite_bucket_folder where bucket = #{bucket} and delete_flag = 0 order by id desc ")
     List<BucketFolder> getFoldersByBucketName(@Param("bucket") String bucket);
-
-
 }

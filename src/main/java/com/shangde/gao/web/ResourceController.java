@@ -2,14 +2,16 @@ package com.shangde.gao.web;
 
 import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
 import com.shangde.gao.dao.mapper.main.ResourceMapper;
-import com.shangde.gao.domain.BucketFolder;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.Resource;
+import com.shangde.gao.service.oss.service.OssService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+import static com.shangde.gao.domain.RsJsonManager.success;
 import static com.shangde.gao.domain.RsJsonManager.successDate;
 
 @RestController
@@ -21,11 +23,59 @@ public class ResourceController {
 
     private final BucketFolderMapper bucketFolderMapper;
 
-    public ResourceController(ResourceMapper resourceMapper, BucketFolderMapper bucketFolderMapper) {
+    private final OssService ossService;
+
+    public ResourceController(ResourceMapper resourceMapper, BucketFolderMapper bucketFolderMapper, OssService ossService) {
         this.resourceMapper = resourceMapper;
         this.bucketFolderMapper = bucketFolderMapper;
+        this.ossService = ossService;
     }
 
+    /**
+     * create by: gaoming01
+     * description:更新资源
+     * create time: 18:12 2019/1/17
+     *
+     * @Param: id 待更新的资源ID
+     * @Param: resource 待更新的资源
+     * @return: 无
+     */
+    @ApiOperation(value = "更新资源", response = String.class)
+    @PutMapping(value = "/updateResource/{id}")
+    public ResponseEntity<ResDTO> updateResource(@PathVariable(value = "id") Integer id, @RequestBody Resource resource) {
+        ossService.updateResource(id, resource);
+        return ResponseEntity.ok(success());
+    }
+
+    /**
+     * create by: gaoming01
+     * description:删除资源
+     * create time: 18:12 2019/1/17
+     *
+     * @Param: resource 待删除的资源ID
+     * @return: 无
+     */
+    @ApiOperation(value = "删除资源", response = String.class)
+    @DeleteMapping(value = "/deleteResource/{id}")
+    public ResponseEntity<ResDTO> deleteResource(@PathVariable(value = "id") Integer id) {
+        ossService.deleteResource(id);
+        return ResponseEntity.ok(success());
+    }
+
+    /**
+     * create by: gaoming01
+     * description:添加资源到后台resource表中
+     * create time: 18:12 2019/1/17
+     *
+     * @Param: resource 待添加的资源
+     * @return: 无
+     */
+    @ApiOperation(value = "添加资源", response = String.class)
+    @PostMapping(value = "/addResource")
+    public ResponseEntity<ResDTO> addResource(@RequestBody Resource resource) {
+        ossService.addResource(resource);
+        return ResponseEntity.ok(success());
+    }
     /**
      * create by: gaoming01
      * description:获取bucket中所有bucketFolders

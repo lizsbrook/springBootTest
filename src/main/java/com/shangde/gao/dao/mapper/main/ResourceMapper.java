@@ -1,20 +1,25 @@
 package com.shangde.gao.dao.mapper.main;
 
 import com.shangde.gao.domain.Resource;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.BaseMapper;
+import tk.mybatis.mapper.common.MySqlMapper;
+import tk.mybatis.mapper.provider.base.BaseInsertProvider;
 
 import javax.annotation.Resources;
 import java.util.List;
 
 @Mapper
 @Repository
-public interface ResourceMapper extends BaseMapper<Resource> {
+public interface ResourceMapper extends BaseMapper<Resource>,MySqlMapper<Resource>{
+
+    @InsertProvider(type = BaseInsertProvider.class, method = "dynamicSQL")
+    @Options(useGeneratedKeys = true)
+    int insertSelective(Resource record);
+
     @Select("select a.id as id,a.url as url,a.type as type, a.poster_url as posterUrl,a.short_description as shortDescription,\n" +
-            "a.long_description as longDescription,a.content_type as contentType,c.display_name as bucketFolderName,a.generate_time as generateTime \n" +
+            "a.long_description as longDescription,a.content_type as contentType,c.display_name as bucketFolderName,a.generate_time as generateTime,FROM_UNIXTIME(UNIX_TIMESTAMP(a.generate_time), '%Y-%m-%d') as generateTimeStr \n" +
             "from lite_resource a,lite_bucket_folder_resource b ,lite_bucket_folder c\n" +
             "where b.bucket_folder_id = #{bucketFolderId} and a.id = b.resource_id and a.delete_flag = 0 and c.delete_flag = 0 and c.id = b.bucket_folder_id\n" +
             "order by a.id desc limit #{startNum},#{counts}")
@@ -31,7 +36,7 @@ public interface ResourceMapper extends BaseMapper<Resource> {
 
 
     @Select("select a.id as id,a.url as url,a.type as type, a.poster_url as posterUrl,a.short_description as shortDescription,\n" +
-            "a.long_description as longDescription,a.content_type as contentType,c.display_name as bucketFolderName,a.generate_time as generateTime \n" +
+            "a.long_description as longDescription,a.content_type as contentType,c.display_name as bucketFolderName,c.id as bucketFolderId,a.generate_time as generateTime,FROM_UNIXTIME(UNIX_TIMESTAMP(a.generate_time), '%Y-%m-%d') as generateTimeStr\n" +
             "from lite_resource a,lite_bucket_folder_resource b ,lite_bucket_folder c\n" +
             "where a.id = b.resource_id and a.delete_flag = 0 and c.delete_flag = 0 and c.id = b.bucket_folder_id and c.bucket = #{bucket}\n" +
             "order by a.id desc limit #{startNum},#{counts}")

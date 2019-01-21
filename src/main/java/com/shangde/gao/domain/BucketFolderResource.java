@@ -17,4 +17,9 @@ public class BucketFolderResource extends MetaEntity {
     @Column(name = "`resource_id`")
     private Integer resourceId;
 
+    public BucketFolderResource(Integer bucketFolderId, Integer resourceId) {
+        super(0);
+        this.bucketFolderId = bucketFolderId;
+        this.resourceId = resourceId;
+    }
 }

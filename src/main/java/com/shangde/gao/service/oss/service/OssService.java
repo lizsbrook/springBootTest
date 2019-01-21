@@ -1,6 +1,7 @@
 package com.shangde.gao.service.oss.service;
 
-import com.shangde.gao.domain.ResDTO;
+import com.shangde.gao.domain.Resource;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +10,10 @@ import com.shangde.gao.domain.ResDTO;
  * Description：${description}
  */
 public interface OssService {
-    ResDTO listFolder(String bucketName);
-    ResDTO listFolderFile(String bucketName,String folderName);
-    ResDTO listFile(String bucketName,String folderName);
+    void addResource(Resource resource);
+    String uploadTest(Integer bucketFolderId,MultipartFile file);
+
+    void deleteResource(Integer id);
+
+    void updateResource(Integer id, Resource resource);
 }

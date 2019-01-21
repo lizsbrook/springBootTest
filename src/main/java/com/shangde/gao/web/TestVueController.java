@@ -1,15 +1,21 @@
 package com.shangde.gao.web;
 
+import com.shangde.gao.dao.mapper.main.BucketFolderMapper;
+import com.shangde.gao.dao.mapper.main.BucketFolderResourceMapper;
+import com.shangde.gao.dao.mapper.main.ResourceMapper;
+import com.shangde.gao.domain.BucketFolderResource;
 import com.shangde.gao.domain.ResDTO;
 
+import com.shangde.gao.domain.Resource;
+import com.shangde.gao.domain.exception.NotFoundException;
 import com.shangde.gao.util.JsonUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
 
 import java.util.*;
 
-import static com.shangde.gao.domain.RsJsonManager.reNewError;
-import static com.shangde.gao.domain.RsJsonManager.successDate;
+import static com.shangde.gao.domain.RsJsonManager.success;
 
 
 /**
@@ -22,16 +28,16 @@ import static com.shangde.gao.domain.RsJsonManager.successDate;
 @RequestMapping(value = "api/v1/testVue")
 public class TestVueController {
 
-    @PostMapping(value = "/addPic")
-    public ResDTO addPic(){
-        Map<String, Object> testUser = new HashMap<>();
-        testUser.put("bucketFloderName", "111");
-        testUser.put("generateTime", "tttttt");
-        testUser.put("url", "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-        testUser.put("shortDescription", "shortDescription");
-        testUser.put("longDescription", "longDescription");
-        return successDate(testUser);
+    private final ResourceMapper resourceMapper;
+
+    private final BucketFolderResourceMapper bucketFolderResourceMapper;
+
+    public TestVueController(ResourceMapper resourceMapper, BucketFolderMapper bucketFolderMapper, BucketFolderResourceMapper bucketFolderResourceMapper) {
+        this.resourceMapper = resourceMapper;
+        this.bucketFolderResourceMapper = bucketFolderResourceMapper;
     }
+
+
 
     @PostMapping(value = "/login")
     public String subscribe() {
