@@ -53,19 +53,7 @@ public class TestVueController {
 //        return successDate(testUser);
     }
 
-    @GetMapping(value = "/infos")
-    public String infos() {
-        Map<String, Object> testUser = new HashMap<>();
-        List<String> roles = new ArrayList<>();
-        roles.add("admin");
-        testUser.put("roles", roles);
-        testUser.put("token", "admin");
-        testUser.put("introduction", "我是超级管理员");
-        testUser.put("avatar", "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-        testUser.put("name", "Super Admin");
-        return JsonUtils.toJson(testUser);
-//      return successDate(testUser);
-    }
+
 
 
     @GetMapping(value = "/all")

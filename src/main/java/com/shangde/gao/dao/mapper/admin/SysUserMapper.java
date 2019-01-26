@@ -1,6 +1,6 @@
 package com.shangde.gao.dao.mapper.admin;
 
-import com.shangde.gao.domain.SysUser;
+import com.shangde.gao.domain.LoginUser;
 import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -11,5 +11,5 @@ import tk.mybatis.mapper.common.BaseMapper;
  * Description：${description}
  */
 @Mapper
-public interface SysUserMapper extends BaseMapper<SysUser>{
+public interface SysUserMapper extends BaseMapper<LoginUser>{
 }

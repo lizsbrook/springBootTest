@@ -1,23 +1,25 @@
 package com.shangde.gao.service;
+
 import com.shangde.gao.dao.manager.UserManager;
-import com.shangde.gao.dao.mapper.main.UserMapper;
+import com.shangde.gao.dao.mapper.admin.SysUserMapper;
+import com.shangde.gao.domain.LoginUser;
 import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;
+import com.shangde.gao.domain.exception.NotFoundException;
+import com.shangde.gao.domain.exception.UnauthorizedException;
 import com.shangde.gao.service.redis.RedisService;
 import com.shangde.gao.util.JsonUtils;
 import com.shangde.gao.util.WXDecrypt;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
-import java.net.URLEncoder;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.shangde.gao.domain.RsJsonManager.successDate;
 
@@ -26,10 +28,17 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    @Autowired
-    private UserManager userManager;
-    @Autowired
-    private RedisService redisService;
+    private final UserManager userManager;
+
+    private final RedisService redisService;
+
+    private final SysUserMapper sysUserMapper;
+
+    public UserServiceImpl(UserManager userManager, RedisService redisService, SysUserMapper sysUserMapper) {
+        this.userManager = userManager;
+        this.redisService = redisService;
+        this.sysUserMapper = sysUserMapper;
+    }
 
     @Override
     public ResDTO updateUser(User user) {
@@ -94,6 +103,16 @@ public class UserServiceImpl implements UserService {
         String result = WXDecrypt.decrypt(user.getEncryptedData(), sessionKey, user.getIv());
         logger.info("decrypt over ,user info :{}", result);
         return successDate(JsonUtils.toBean(result, Map.class));
+    }
+
+    @Override
+    public LoginUser findUserByName(String name,String password) {
+        List<LoginUser> userList = sysUserMapper.select(new LoginUser(name,password));
+        if(CollectionUtils.isEmpty(userList))
+        {
+            throw  new UnauthorizedException("用户名找不到或者密码错误");
+        }
+        return userList.get(0);
     }
 
 

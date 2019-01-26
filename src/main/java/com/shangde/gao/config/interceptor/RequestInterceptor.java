@@ -38,18 +38,18 @@ public class RequestInterceptor implements HandlerInterceptor {
                 realIp, url, queryString, localAddr, localPort);
         //request.getParameterMap().forEach((s, strings) -> logger.info("请求参数名 : {} ： {}", s, Arrays.toString(strings)));
 
-        RequestWrapper requestWrapper = new RequestWrapper(request);
-        String body = requestWrapper.getBody();
-        logger.info("请求参数体 :" + body);
-
-        Enumeration<String> enumeration = request.getHeaderNames();
-        StringBuilder header = new StringBuilder();
-        while (enumeration.hasMoreElements()) {
-            String key = enumeration.nextElement();
-            String value = request.getHeader(key);
-            header.append(key).append("--").append(value).append("; ");
-        }
-        logger.info("header  : {}", header.toString());
+//        RequestWrapper requestWrapper = new RequestWrapper(request);
+//        String body = requestWrapper.getBody();
+//        logger.info("请求参数体 :" + body);
+//
+//        Enumeration<String> enumeration = request.getHeaderNames();
+//        StringBuilder header = new StringBuilder();
+//        while (enumeration.hasMoreElements()) {
+//            String key = enumeration.nextElement();
+//            String value = request.getHeader(key);
+//            header.append(key).append("--").append(value).append("; ");
+//        }
+//        logger.info("header  : {}", header.toString());
 
         return true;
     }

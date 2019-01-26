@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
@@ -23,7 +24,9 @@ import javax.validation.ConstraintViolationException;
 public class ExceptionHandlerAdvice {
 
 	@ExceptionHandler(value = Exception.class)
-    public ResponseEntity<ResDTO> exception(Exception e){
+    public ResponseEntity<ResDTO> exception(Exception e,HttpServletRequest request){
+
+		log.error("请求路径{}报错, 错误原因为: {}", request.getRequestURI(), e.getMessage());
 
 		//查询不到错误  404, "Not Found"
 		if (e instanceof NotFoundException) {

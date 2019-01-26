@@ -4,13 +4,16 @@ import com.shangde.gao.domain.ResDTO;
 import com.shangde.gao.domain.RsJsonManager;
 import com.shangde.gao.domain.User;
 import com.shangde.gao.service.UserService;
+import com.shangde.gao.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -83,4 +86,7 @@ public class UserController {
         logger.info(" 解密传入参数为- encryptedData = {},iv = {},openid = {}", user.getEncryptedData(), user.getIv(), user.getOpenid());
         return userService.decrypt(user);
     }
+
+
+
 }

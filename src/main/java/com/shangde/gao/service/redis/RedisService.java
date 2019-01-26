@@ -1,6 +1,6 @@
 package com.shangde.gao.service.redis;
 
-/**
+import com.shangde.gao.domain.LoginUser; /**
  * Created with IntelliJ IDEA.
  * User: yf-wenhao
  * Date: 17/10/27
@@ -12,4 +12,11 @@ public interface RedisService {
     //设置 解密 密钥
     void setSessionKey(String oppenId, String session_key);
 
+    String addSession(LoginUser user);
+
+    boolean checkUserOnline(String decode);
+
+    void setRetireTimeForUserName(String decode);
+
+    LoginUser getSession(String decode);
 }
