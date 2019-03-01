@@ -1,11 +1,11 @@
 spring:
   datasource:
            main:
-             url: jdbc:mysql://47.104.66.131:3306/dbTest?useSSL=false
+             url: jdbc:mysql://47.105.106.195:3306/dbTest?SSL=false
              username: root
              password: gaoming123@
            admin:
-             url: jdbc:mysql://47.104.66.131:3306/gm_admin?useSSL=false
+             url: jdbc:mysql://47.105.106.195:3306/test-admin?SSL=false
              username: root
              password: gaoming123@
   #上传的文件请求大小
@@ -18,7 +18,7 @@ redis:
   maxIdle: 200
   maxWaitMillis: 1000
   testOnBorrow: true
-  host: 47.104.66.131
+  host: 47.105.106.195
   port: 9681
   timeout: 10000
   password: fiberhome001A@123
@@ -30,7 +30,7 @@ wx:
   secret: b4eba8f26b3d9822768889343a79d32e
   loginUrL: https://api.weixin.qq.com/sns/jscode2session
 
-env: dev
+env: prod
 
 
 #阿里云oss对象存储配置
@@ -38,3 +38,6 @@ ossconfig:
   endpoint: oss-cn-qingdao.aliyuncs.com
   accessKeyId: LTAIknSCxofHdxtj
   accessKeySecret: RzWWTMmkZN0FwZA3ZNlpRk8xzcIqvc
+
+wisdomdevice:
+  servicePort: 9999

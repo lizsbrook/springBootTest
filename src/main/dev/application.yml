@@ -1,11 +1,11 @@
 spring:
   datasource:
            main:
-             url: jdbc:mysql://47.105.106.195:3306/dbTest?SSL=false
+             url: jdbc:mysql://47.105.106.195:3306/dbTest?SSL=false&useUnicode=true&characterEncoding=UTF-8
              username: root
              password: gaoming123@
            admin:
-             url: jdbc:mysql://47.105.106.195:3306/test-admin?SSL=false
+             url: jdbc:mysql://47.105.106.195:3306/test-admin?SSL=false&useUnicode=true&characterEncoding=UTF-8
              username: root
              password: gaoming123@
   #上传的文件请求大小
@@ -38,3 +38,6 @@ ossconfig:
   endpoint: oss-cn-qingdao.aliyuncs.com
   accessKeyId: LTAIknSCxofHdxtj
   accessKeySecret: RzWWTMmkZN0FwZA3ZNlpRk8xzcIqvc
+
+wisdomdevice:
+  servicePort: 9999

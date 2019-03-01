@@ -26,6 +26,8 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
+import static com.shangde.gao.domain.threadLocal.SessionManager.setSession;
+
 /**
  * 登陆安全验证拦截器
  * User: gaoming
@@ -71,8 +73,7 @@ public class InterceptorSession implements HandlerInterceptor {
             //刷新session时间
             redisService.setRetireTimeForUserName(token);
             LoginUser user = redisService.getSession(token);
-            request.getSession().setAttribute("user", user);
-            request.getSession().setAttribute("SESSION", token);
+            setSession(user);
             return true;
         }
         setErrorResult(response);
