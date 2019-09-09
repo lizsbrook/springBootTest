@@ -53,10 +53,12 @@ public class InterceptorSession implements HandlerInterceptor {
         request.getParameterMap().forEach((s, strings) -> log.info("请求参数名 : {} ： {}", s, Arrays.toString(strings)));
 
 
+
         String token = request.getHeader("X-Token");
         if (StringUtils.isEmpty(token)) {
-            setErrorResult(response);
-            return false;
+            //setErrorResult(response);
+            return true;
+
         }
 
         //判断session是否存在

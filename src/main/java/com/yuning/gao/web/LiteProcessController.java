@@ -25,7 +25,7 @@ import java.util.Map;
    小程序交互接口
  */
 @RestController
-@RequestMapping(value = "/lite")
+@RequestMapping(value = "/api/v1/lite")
 public class LiteProcessController {
 
     private static final Logger logger = LoggerFactory.getLogger(LiteProcessController.class);
